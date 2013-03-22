@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chessApp')
-  .factory('ai', function () {
+  .factory('chessengine', function () {
     // Service logic
     // ...
 
