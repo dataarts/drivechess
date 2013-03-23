@@ -12,8 +12,7 @@ chessboard {
     position: absolute;
     height: 12.5%;
     width: 12.5%;
-    background: #333;
-    color: #eee;
+
     font-size: 500%;
     line-height: 100%;
   }
@@ -21,6 +20,10 @@ chessboard {
   #a1,#a3,#a5,#a7,#b2,#b4,#b6,#b8,#c1,#c3,#c5,#c7,#d2,#d4,#d6,#d8,#e1,#e3,#e5,#e7,#f2,#f4,#f6,#f8,#g1,#g3,#g5,#g7,#h2,#h4,#h6,#h8{
     background: #eee;
     color: #333;
+  }
+  #a2,#a4,#a6,#a8,#b1,#b3,#b5,#b7,#c2,#c4,#c6,#c8,#d1,#d3,#d5,#d7,#e2,#e4,#e6,#e8,#f1,#f3,#f5,#f7,#g2,#g4,#g6,#g8,#h1,#h3,#h5,#h7{
+    background: #333;
+    color: #eee;
   }
 
   #a1, .a1 {left: 0%; top:0.0%}
@@ -88,10 +91,10 @@ chessboard {
   #h7, .h7 {left: 87.5%; top:75.0%}
   #h8, .h8 {left: 87.5%; top:87.5%}
 
-  #PBa:after,#PBb:after,#PBc:after,#PBd:after,#PBe:after,#PBf:after,#PBg:after,#PBh:after,#RBa:after,#RBh:after,#NBb:after,#NBg:after,#BBc:after,#BBf:after,#QBd:after,#KBe:after,#PWa:after,#PWb:after,#PWc:after,#PWd:after,#PWe:after,#PWf:after,#PWg:after,#PWh:after,#RWa:after,#RWh:after,#NWb:after,#NWg:after,#BWc:after,#BWf:after,#QWd:after,#KWe:after {
-    display: block;
-  }
-  
+  // #PBa,#PBb,#PBc,#PBd,#PBe,#PBf,#PBg,#PBh,#RBa,#RBh,#NBb,#NBg,#BBc,#BBf,#QBd,#KBe,#PWa,#PWb,#PWc,#PWd,#PWe,#PWf,#PWg,#PWh,#RWa,#RWh,#NWb,#NWg,#BWc,#BWf,#QWd,#KWe {
+  //   background: none;
+  // }
+
   #PBa:after {content: '♝'}
   #PBb:after {content: '♝'}
   #PBc:after {content: '♝'}
