@@ -3,7 +3,7 @@
 angular.module('chessApp')
   .directive('chessboard', function() {
     var i, j;
-    var template = '<div ng-transclude></div>\n';
+    var template = '';
     var letters = 'abcdefgh';
     for (i = 0; i < 8; i++) {
       var letter = letters[i];
