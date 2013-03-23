@@ -89,15 +89,11 @@ chessboard {
   #h7, .h7 {left: 87.5%; top:12.5%}
   #h8, .h8 {left: 87.5%; top:0.0%}
 
-  // #PBa,#PBb,#PBc,#PBd,#PBe,#PBf,#PBg,#PBh,#RBa,#RBh,#NBb,#NBg,#BBc,#BBf,#QBd,#KBe,#PWa,#PWb,#PWc,#PWd,#PWe,#PWf,#PWg,#PWh,#RWa,#RWh,#NWb,#NWg,#BWc,#BWf,#QWd,#KWe {
-  //   background: none;
-  // }
-
   $colorWhite: #fff;
-  $shadowWhite: 0px 0px 5px #333;
+  $shadowWhite: 1px 1px 1px #333, -1px 1px 1px #333, 1px -1px 1px #333, -1px -1px 1px #333;
   $colorBlack: #333;
-  $shadowBlack: 0px 0px 5px #fff;
-
+  $shadowBlack: 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff;
+  
   #PBa:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
   #PBb:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
   #PBc:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
