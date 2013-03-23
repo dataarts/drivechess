@@ -19,113 +19,117 @@ chessboard {
 
   #a1,#a3,#a5,#a7,#b2,#b4,#b6,#b8,#c1,#c3,#c5,#c7,#d2,#d4,#d6,#d8,#e1,#e3,#e5,#e7,#f2,#f4,#f6,#f8,#g1,#g3,#g5,#g7,#h2,#h4,#h6,#h8{
     background: #eee;
-    color: #333;
   }
   #a2,#a4,#a6,#a8,#b1,#b3,#b5,#b7,#c2,#c4,#c6,#c8,#d1,#d3,#d5,#d7,#e2,#e4,#e6,#e8,#f1,#f3,#f5,#f7,#g2,#g4,#g6,#g8,#h1,#h3,#h5,#h7{
     background: #333;
-    color: #eee;
   }
 
-  #a1, .a1 {left: 0%; top:0.0%}
-  #a2, .a2 {left: 0%; top:12.5%}
-  #a3, .a3 {left: 0%; top:25.0%}
-  #a4, .a4 {left: 0%; top:37.5%}
-  #a5, .a5 {left: 0%; top:50.0%}
-  #a6, .a6 {left: 0%; top:62.5%}
-  #a7, .a7 {left: 0%; top:75.0%}
-  #a8, .a8 {left: 0%; top:87.5%}
-  #b1, .b1 {left: 12.5%; top:0.0%}
-  #b2, .b2 {left: 12.5%; top:12.5%}
-  #b3, .b3 {left: 12.5%; top:25.0%}
-  #b4, .b4 {left: 12.5%; top:37.5%}
-  #b5, .b5 {left: 12.5%; top:50.0%}
-  #b6, .b6 {left: 12.5%; top:62.5%}
-  #b7, .b7 {left: 12.5%; top:75.0%}
-  #b8, .b8 {left: 12.5%; top:87.5%}
-  #c1, .c1 {left: 25.0%; top:0.0%}
-  #c2, .c2 {left: 25.0%; top:12.5%}
-  #c3, .c3 {left: 25.0%; top:25.0%}
-  #c4, .c4 {left: 25.0%; top:37.5%}
-  #c5, .c5 {left: 25.0%; top:50.0%}
-  #c6, .c6 {left: 25.0%; top:62.5%}
-  #c7, .c7 {left: 25.0%; top:75.0%}
-  #c8, .c8 {left: 25.0%; top:87.5%}
-  #d1, .d1 {left: 37.5%; top:0.0%}
-  #d2, .d2 {left: 37.5%; top:12.5%}
-  #d3, .d3 {left: 37.5%; top:25.0%}
-  #d4, .d4 {left: 37.5%; top:37.5%}
-  #d5, .d5 {left: 37.5%; top:50.0%}
-  #d6, .d6 {left: 37.5%; top:62.5%}
-  #d7, .d7 {left: 37.5%; top:75.0%}
-  #d8, .d8 {left: 37.5%; top:87.5%}
-  #e1, .e1 {left: 50.0%; top:0.0%}
-  #e2, .e2 {left: 50.0%; top:12.5%}
-  #e3, .e3 {left: 50.0%; top:25.0%}
-  #e4, .e4 {left: 50.0%; top:37.5%}
-  #e5, .e5 {left: 50.0%; top:50.0%}
-  #e6, .e6 {left: 50.0%; top:62.5%}
-  #e7, .e7 {left: 50.0%; top:75.0%}
-  #e8, .e8 {left: 50.0%; top:87.5%}
-  #f1, .f1 {left: 62.5%; top:0.0%}
-  #f2, .f2 {left: 62.5%; top:12.5%}
-  #f3, .f3 {left: 62.5%; top:25.0%}
-  #f4, .f4 {left: 62.5%; top:37.5%}
-  #f5, .f5 {left: 62.5%; top:50.0%}
-  #f6, .f6 {left: 62.5%; top:62.5%}
-  #f7, .f7 {left: 62.5%; top:75.0%}
-  #f8, .f8 {left: 62.5%; top:87.5%}
-  #g1, .g1 {left: 75.0%; top:0.0%}
-  #g2, .g2 {left: 75.0%; top:12.5%}
-  #g3, .g3 {left: 75.0%; top:25.0%}
-  #g4, .g4 {left: 75.0%; top:37.5%}
-  #g5, .g5 {left: 75.0%; top:50.0%}
-  #g6, .g6 {left: 75.0%; top:62.5%}
-  #g7, .g7 {left: 75.0%; top:75.0%}
-  #g8, .g8 {left: 75.0%; top:87.5%}
-  #h1, .h1 {left: 87.5%; top:0.0%}
-  #h2, .h2 {left: 87.5%; top:12.5%}
-  #h3, .h3 {left: 87.5%; top:25.0%}
-  #h4, .h4 {left: 87.5%; top:37.5%}
-  #h5, .h5 {left: 87.5%; top:50.0%}
-  #h6, .h6 {left: 87.5%; top:62.5%}
-  #h7, .h7 {left: 87.5%; top:75.0%}
-  #h8, .h8 {left: 87.5%; top:87.5%}
+  #a1, .a1 {left: 0%; top:87.5%}
+  #a2, .a2 {left: 0%; top:75.0%}
+  #a3, .a3 {left: 0%; top:62.5%}
+  #a4, .a4 {left: 0%; top:50.0%}
+  #a5, .a5 {left: 0%; top:37.5%}
+  #a6, .a6 {left: 0%; top:25.0%}
+  #a7, .a7 {left: 0%; top:12.5%}
+  #a8, .a8 {left: 0%; top:0.0%}
+  #b1, .b1 {left: 12.5%; top:87.5%}
+  #b2, .b2 {left: 12.5%; top:75.0%}
+  #b3, .b3 {left: 12.5%; top:62.5%}
+  #b4, .b4 {left: 12.5%; top:50.0%}
+  #b5, .b5 {left: 12.5%; top:37.5%}
+  #b6, .b6 {left: 12.5%; top:25.0%}
+  #b7, .b7 {left: 12.5%; top:12.5%}
+  #b8, .b8 {left: 12.5%; top:0.0%}
+  #c1, .c1 {left: 25.0%; top:87.5%}
+  #c2, .c2 {left: 25.0%; top:75.0%}
+  #c3, .c3 {left: 25.0%; top:62.5%}
+  #c4, .c4 {left: 25.0%; top:50.0%}
+  #c5, .c5 {left: 25.0%; top:37.5%}
+  #c6, .c6 {left: 25.0%; top:25.0%}
+  #c7, .c7 {left: 25.0%; top:12.5%}
+  #c8, .c8 {left: 25.0%; top:0.0%}
+  #d1, .d1 {left: 37.5%; top:87.5%}
+  #d2, .d2 {left: 37.5%; top:75.0%}
+  #d3, .d3 {left: 37.5%; top:62.5%}
+  #d4, .d4 {left: 37.5%; top:50.0%}
+  #d5, .d5 {left: 37.5%; top:37.5%}
+  #d6, .d6 {left: 37.5%; top:25.0%}
+  #d7, .d7 {left: 37.5%; top:12.5%}
+  #d8, .d8 {left: 37.5%; top:0.0%}
+  #e1, .e1 {left: 50.0%; top:87.5%}
+  #e2, .e2 {left: 50.0%; top:75.0%}
+  #e3, .e3 {left: 50.0%; top:62.5%}
+  #e4, .e4 {left: 50.0%; top:50.0%}
+  #e5, .e5 {left: 50.0%; top:37.5%}
+  #e6, .e6 {left: 50.0%; top:25.0%}
+  #e7, .e7 {left: 50.0%; top:12.5%}
+  #e8, .e8 {left: 50.0%; top:0.0%}
+  #f1, .f1 {left: 62.5%; top:87.5%}
+  #f2, .f2 {left: 62.5%; top:75.0%}
+  #f3, .f3 {left: 62.5%; top:62.5%}
+  #f4, .f4 {left: 62.5%; top:50.0%}
+  #f5, .f5 {left: 62.5%; top:37.5%}
+  #f6, .f6 {left: 62.5%; top:25.0%}
+  #f7, .f7 {left: 62.5%; top:12.5%}
+  #f8, .f8 {left: 62.5%; top:0.0%}
+  #g1, .g1 {left: 75.0%; top:87.5%}
+  #g2, .g2 {left: 75.0%; top:75.0%}
+  #g3, .g3 {left: 75.0%; top:62.5%}
+  #g4, .g4 {left: 75.0%; top:50.0%}
+  #g5, .g5 {left: 75.0%; top:37.5%}
+  #g6, .g6 {left: 75.0%; top:25.0%}
+  #g7, .g7 {left: 75.0%; top:12.5%}
+  #g8, .g8 {left: 75.0%; top:0.0%}
+  #h1, .h1 {left: 87.5%; top:87.5%}
+  #h2, .h2 {left: 87.5%; top:75.0%}
+  #h3, .h3 {left: 87.5%; top:62.5%}
+  #h4, .h4 {left: 87.5%; top:50.0%}
+  #h5, .h5 {left: 87.5%; top:37.5%}
+  #h6, .h6 {left: 87.5%; top:25.0%}
+  #h7, .h7 {left: 87.5%; top:12.5%}
+  #h8, .h8 {left: 87.5%; top:0.0%}
 
   // #PBa,#PBb,#PBc,#PBd,#PBe,#PBf,#PBg,#PBh,#RBa,#RBh,#NBb,#NBg,#BBc,#BBf,#QBd,#KBe,#PWa,#PWb,#PWc,#PWd,#PWe,#PWf,#PWg,#PWh,#RWa,#RWh,#NWb,#NWg,#BWc,#BWf,#QWd,#KWe {
   //   background: none;
   // }
 
-  #PBa:after {content: '♝'}
-  #PBb:after {content: '♝'}
-  #PBc:after {content: '♝'}
-  #PBd:after {content: '♝'}
-  #PBe:after {content: '♝'}
-  #PBf:after {content: '♝'}
-  #PBg:after {content: '♝'}
-  #PBh:after {content: '♝'}
-  #RBa:after {content: '♜'}
-  #RBh:after {content: '♜'}
-  #NBb:after {content: '♞'}
-  #NBg:after {content: '♞'}
-  #BBc:after {content: '♜'}
-  #BBf:after {content: '♜'}
-  #QBd:after {content: '♛'}
-  #KBe:after {content: '♚'}
-  #PWa:after {content: '♙'}
-  #PWb:after {content: '♙'}
-  #PWc:after {content: '♙'}
-  #PWd:after {content: '♙'}
-  #PWe:after {content: '♙'}
-  #PWf:after {content: '♙'}
-  #PWg:after {content: '♙'}
-  #PWh:after {content: '♙'}
-  #RWa:after {content: '♖'}
-  #RWh:after {content: '♖'}
-  #NWb:after {content: '♘'}
-  #NWg:after {content: '♘'}
-  #BWc:after {content: '♗'}
-  #BWf:after {content: '♗'}
-  #QWd:after {content: '♕'}
-  #KWe:after {content: '♔'}
+  $colorWhite: #fff;
+  $shadowWhite: 0px 0px 5px #333;
+  $colorBlack: #333;
+  $shadowBlack: 0px 0px 5px #fff;
+
+  #PBa:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBb:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBc:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBd:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBe:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBf:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBg:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBh:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #RBa:after {content: '♜'; color: $colorBlack; text-shadow: $shadowBlack}
+  #RBh:after {content: '♜'; color: $colorBlack; text-shadow: $shadowBlack}
+  #NBb:after {content: '♞'; color: $colorBlack; text-shadow: $shadowBlack}
+  #NBg:after {content: '♞'; color: $colorBlack; text-shadow: $shadowBlack}
+  #BBc:after {content: '♝'; color: $colorBlack; text-shadow: $shadowBlack}
+  #BBf:after {content: '♝'; color: $colorBlack; text-shadow: $shadowBlack}
+  #QBd:after {content: '♛'; color: $colorBlack; text-shadow: $shadowBlack}
+  #KBe:after {content: '♚'; color: $colorBlack; text-shadow: $shadowBlack}
+
+  #PWa:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWb:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWc:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWd:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWe:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWf:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWg:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWh:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #RWa:after {content: '♜'; color: $colorWhite; text-shadow: $shadowWhite}
+  #RWh:after {content: '♜'; color: $colorWhite; text-shadow: $shadowWhite}
+  #NWb:after {content: '♞'; color: $colorWhite; text-shadow: $shadowWhite}
+  #NWg:after {content: '♞'; color: $colorWhite; text-shadow: $shadowWhite}
+  #BWc:after {content: '♝'; color: $colorWhite; text-shadow: $shadowWhite}
+  #BWf:after {content: '♝'; color: $colorWhite; text-shadow: $shadowWhite}
+  #QWd:after {content: '♛'; color: $colorWhite; text-shadow: $shadowWhite}
+  #KWe:after {content: '♚'; color: $colorWhite; text-shadow: $shadowWhite}
 
 }
