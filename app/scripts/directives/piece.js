@@ -19,13 +19,13 @@ angular.module('chessApp')
           cursor: 'move',
           zIndex: 100,
           start: function(event, ui) {
-            console.log('start');
+            //console.log('start');
           },
           stop: function(event, ui) {
-            console.log('stop');
+            //console.log('stop');
           },
           drag: function(event, ui) {
-            console.log('drag');
+            //console.log('drag');
           }
         });
       }

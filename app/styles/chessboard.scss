@@ -2,11 +2,13 @@
 chessboard {
 
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   background: #ccc;
   width: 600px;
   height: 600px;
+  margin-top: -300px;
+  margin-left: -300px;
 
   div {
     position: absolute;
