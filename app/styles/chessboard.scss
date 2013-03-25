@@ -24,6 +24,10 @@ chessboard {
     background: #333;
   }
 
+  .highlight {
+    background: #c00!important;
+  }
+
   #a1, .a1 {left: 0%; top:87.5%}
   #a2, .a2 {left: 0%; top:75.0%}
   #a3, .a3 {left: 0%; top:62.5%}

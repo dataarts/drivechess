@@ -19,15 +19,22 @@ angular.module('chessApp')
       link: function postLink(scope, element, attrs) {
         element.find('.cell').droppable({
           out: function(event, ui) {
-            element.removeClass('highlight');
-            console.log('out');
+            $(this).removeClass('highlight');
           },
           drop: function(event, ui) {
-            console.log('drop');
+            $(this).removeClass('highlight');
+            ui.draggable.css({'top': '', 'left': ''});
           },
           over: function(event, ui) {
-            element.addClass('highlight');
-            console.log('over');
+            $(this).addClass('highlight');
+            scope.game.board[ui.draggable[0].id] = this.id;
+            scope.$apply();
+          }
+        });
+        $('body').droppable({
+          over: function(event, ui) {
+            scope.game.board[ui.draggable[0].id] = 'offscreen';
+            scope.$apply();
           }
         });
       }
