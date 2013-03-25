@@ -83,6 +83,8 @@ angular.module('chessApp')
     };
 
     var realtimeLoader = new rtclient.RealtimeLoader(realtimeOptions);
-    realtimeLoader.start();
+    realtimeLoader.start(function() {
+      $scope.authorized = true;
+    });
 
   });
