@@ -27,13 +27,14 @@ angular.module('chessApp')
           },
           over: function(event, ui) {
             $(this).addClass('highlight');
-            scope.game.board[ui.draggable[0].id] = this.id;
+            console.log('scope board', scope.board);
+            scope.board.set(ui.draggable[0].id, this.id);
             scope.$apply();
           }
         });
         $('body').droppable({
           over: function(event, ui) {
-            scope.game.board[ui.draggable[0].id] = 'offscreen';
+            scope.board.set(ui.draggable[0].id, 'offscreen');
             scope.$apply();
           }
         });

@@ -3,7 +3,7 @@
 angular.module('chessApp')
   .directive('piece', function($rootScope, $log) {
     return {
-      template: '<div ng-class="game.board[id]"></div>',
+      template: '<div ng-class="board.get(id)"></div>',
       restrict: 'E',
       replace: true,
       scope: 'isolate',
