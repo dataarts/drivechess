@@ -1,5 +1,16 @@
-<button ng-hide="authorized" id="authorizeButton" disabled>You must authorize</button>
-<chessboard ng-transclude>
+<div ng-hide="needsAuth || authorized" class="loader" id="loader"></div>
+<div class="modal" ng-hide="authorized" ng-show="needsAuth">
+	<div class="modal-header">
+		<h3>Drive Chess</h3>
+	</div>
+	<div class="modal-body">
+		Your authorization is needed to store you chess games in your Google Drive.
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" id="authorizeButton" disabled>Authorize</button>
+	</div>
+</div>
+<chessboard ng-transclude ng-show="authorized">
 	<piece id="PBa"></piece>
 	<piece id="PBb"></piece>
 	<piece id="PBc"></piece>

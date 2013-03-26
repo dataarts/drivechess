@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chessApp')
-  .factory('rtclient', function() {
+  .factory('rtclient', function($log) {
 
   /**
    * @fileoverview Common utility functionality for Google Drive Realtime API,
@@ -59,7 +59,6 @@ angular.module('chessApp')
         params[paramStr[0]] = window.unescape(paramStr[1]);
       }
     }
-    console.log(params);
     return params;
   };
 
@@ -80,9 +79,8 @@ angular.module('chessApp')
   rtclient.getOption = function(options, key, defaultValue) {
     var value = options[key] === undefined ? defaultValue : options[key];
     if (value === undefined) {
-      console.error(key + ' should be present in the options.');
+      $log.error(key + ' should be present in the options.');
     }
-    console.log(value);
     return value;
   };
 
@@ -99,6 +97,7 @@ angular.module('chessApp')
     // Get the user ID if it's available in the state query parameter.
     this.userId = rtclient.params['userId'];
     this.authButton = document.getElementById(rtclient.getOption(options, 'authButtonElementId'));
+    this.authNeededCallback = rtclient.getOption(options, 'authNeededCallback');
   };
 
 
@@ -128,6 +127,9 @@ angular.module('chessApp')
         _this.authButton.disabled = true;
         _this.fetchUserId(onAuthComplete);
       } else {
+        if (_this.authNeededCallback) {
+          _this.authNeededCallback();
+        }
         _this.authButton.disabled = false;
         _this.authButton.onclick = authorizeWithPopup;
       }
@@ -144,7 +146,6 @@ angular.module('chessApp')
         user_id: userId,
         immediate: false
       }, handleAuthResult);
-      console.log(clientId);
     };
 
     // Try with no popups first.
@@ -355,8 +356,8 @@ angular.module('chessApp')
       }
       // File failed to be created, log why and do not attempt to redirect.
       else {
-        console.error('Error creating file.');
-        console.error(file);
+        $log.error('Error creating file.');
+        $log.error(file);
       }
     });
   };

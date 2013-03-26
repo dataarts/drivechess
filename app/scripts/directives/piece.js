@@ -3,7 +3,7 @@
 angular.module('chessApp')
   .directive('piece', function($rootScope, $log) {
     return {
-      template: '<div ng-class="board.get(id)"></div>',
+      template: '<div class="piece animated" ng-class="board.get(id)"></div>',
       restrict: 'E',
       replace: true,
       scope: 'isolate',
@@ -19,9 +19,11 @@ angular.module('chessApp')
           cursor: 'move',
           zIndex: 100,
           start: function(event, ui) {
+            element.removeClass('animated');
             //console.log('start');
           },
           stop: function(event, ui) {
+            element.addClass('animated');
             //console.log('stop');
           },
           drag: function(event, ui) {
