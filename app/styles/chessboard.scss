@@ -21,10 +21,35 @@ chessboard {
     position: absolute;
     height: 12.5%;
     width: 12.5%;
+  }
 
+  div:after {
+    display: block;
+    width: 100%;
+    height: 100%;
     font-size: 500%;
     line-height: 100%;
+    text-align: center;
   }
+
+  $colorWhite: #fff;
+  $shadowWhite: 1px 1px 1px #333, -1px 1px 1px #333, 1px -1px 1px #333, -1px -1px 1px #333;
+  $colorBlack: #333;
+  $shadowBlack: 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff;
+  
+  #PBa, #PBb, #PBc, #PBd, #PBe, #PBf, #PBg, #PBh { background: url('../images/PB.svg'); background-size: 100% 100%; }
+  #RBa, #RBh { background: url('../images/RB.svg'); background-size: 100% 100%; }
+  #NBb, #NBg { background: url('../images/NB.svg'); background-size: 100% 100%; }
+  #BBc, #BBf { background: url('../images/BB.svg'); background-size: 100% 100%; }
+  #QBd { background: url('../images/QB.svg'); background-size: 100% 100%; }
+  #KBe { background: url('../images/KB.svg'); background-size: 100% 100%; }
+
+  #PWa, #PWb ,#PWc ,#PWd ,#PWe ,#PWf ,#PWg ,#PWh { background: url('../images/PW.svg'); background-size: 100% 100%; }
+  #RWa, #RWh { background: url('../images/RW.svg'); background-size: 100% 100%; }
+  #NWb, #NWg { background: url('../images/NW.svg'); background-size: 100% 100%; }
+  #BWc, #BWf { background: url('../images/BW.svg'); background-size: 100% 100%; }
+  #QWd { background: url('../images/QW.svg'); background-size: 100% 100%; }
+  #KWe { background: url('../images/KW.svg'); background-size: 100% 100%; }
 
   .highlight {
     background: #c00!important;
@@ -101,45 +126,6 @@ chessboard {
   #h6, .h6 {left: 87.5%; top:25.0%}
   #h7, .h7 {left: 87.5%; top:12.5%}
   #h8, .h8 {left: 87.5%; top:0.0%}
-
-  $colorWhite: #fff;
-  $shadowWhite: 1px 1px 1px #333, -1px 1px 1px #333, 1px -1px 1px #333, -1px -1px 1px #333;
-  $colorBlack: #333;
-  $shadowBlack: 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff;
-  
-  #PBa:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #PBb:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #PBc:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #PBd:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #PBe:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #PBf:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #PBg:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #PBh:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
-  #RBa:after {content: '♜'; color: $colorBlack; text-shadow: $shadowBlack}
-  #RBh:after {content: '♜'; color: $colorBlack; text-shadow: $shadowBlack}
-  #NBb:after {content: '♞'; color: $colorBlack; text-shadow: $shadowBlack}
-  #NBg:after {content: '♞'; color: $colorBlack; text-shadow: $shadowBlack}
-  #BBc:after {content: '♝'; color: $colorBlack; text-shadow: $shadowBlack}
-  #BBf:after {content: '♝'; color: $colorBlack; text-shadow: $shadowBlack}
-  #QBd:after {content: '♛'; color: $colorBlack; text-shadow: $shadowBlack}
-  #KBe:after {content: '♚'; color: $colorBlack; text-shadow: $shadowBlack}
-
-  #PWa:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #PWb:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #PWc:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #PWd:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #PWe:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #PWf:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #PWg:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #PWh:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
-  #RWa:after {content: '♜'; color: $colorWhite; text-shadow: $shadowWhite}
-  #RWh:after {content: '♜'; color: $colorWhite; text-shadow: $shadowWhite}
-  #NWb:after {content: '♞'; color: $colorWhite; text-shadow: $shadowWhite}
-  #NWg:after {content: '♞'; color: $colorWhite; text-shadow: $shadowWhite}
-  #BWc:after {content: '♝'; color: $colorWhite; text-shadow: $shadowWhite}
-  #BWf:after {content: '♝'; color: $colorWhite; text-shadow: $shadowWhite}
-  #QWd:after {content: '♛'; color: $colorWhite; text-shadow: $shadowWhite}
-  #KWe:after {content: '♚'; color: $colorWhite; text-shadow: $shadowWhite}
 
 }
 

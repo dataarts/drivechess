@@ -4,6 +4,7 @@ angular.module('chessApp')
   .directive('piece', function($rootScope, $log) {
     return {
       template: '<div ng-class="board.get(id)"></div>',
+      //template: '<object data="images/pawn.svg" ng-class="board.get(id)" type="image/svg+xml"></object>',
       restrict: 'E',
       replace: true,
       scope: 'isolate',
