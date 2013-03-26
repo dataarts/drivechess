@@ -3,12 +3,7 @@
 angular.module('chessApp')
   .directive('piece', function($rootScope, $log) {
     return {
-<<<<<<< HEAD:app/scripts/directives/piece.js
-      template: '<div ng-class="board.get(id)"></div>',
-      //template: '<object data="images/pawn.svg" ng-class="board.get(id)" type="image/svg+xml"></object>',
-=======
       template: '<div class="piece animated" ng-class="board.get(id)"></div>',
->>>>>>> e4174fdadaa16847252166bcdff828c08df32279:client/app/scripts/directives/piece.js
       restrict: 'E',
       replace: true,
       scope: 'isolate',
