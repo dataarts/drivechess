@@ -1,4 +1,5 @@
 @import "compass/css3/transition";
+@import "compass/css3/transform";
 
 chessboard {
 
@@ -10,8 +11,9 @@ chessboard {
   height: 600px;
   margin-top: -300px;
   margin-left: -300px;
+  overflow: visible;
 
-  div {
+  .piece, .cell {
     position: absolute;
     height: 12.5%;
     width: 12.5%;
@@ -56,12 +58,21 @@ chessboard {
     background: #333;
   }
 
-  .piece {
-  }
-
   .animated {
     @include transition-property(top, left);
     @include transition-duration(0.5s);
+  }
+
+  .capturedW {
+    position: relative;
+    top: 100%;
+    float: right;
+  }
+
+  .capturedB {
+    position: relative;
+    top: 100%;
+    float: right;
   }
 
   #a1, .a1 {left: 0%; top:87.5%}
@@ -129,6 +140,7 @@ chessboard {
   #h7, .h7 {left: 87.5%; top:12.5%}
   #h8, .h8 {left: 87.5%; top:0.0%}
 
+<<<<<<< HEAD
 <<<<<<< HEAD:app/styles/chessboard.scss
 =======
   .captured {
@@ -175,6 +187,8 @@ chessboard {
   #KWe:after {content: '♚'; color: $colorWhite; text-shadow: $shadowWhite}
 
 >>>>>>> e4174fdadaa16847252166bcdff828c08df32279:client/app/styles/chessboard.scss
+=======
+>>>>>>> 32b0084562b519522cc8dd8c7c890f072d13c383
 }
 
 chessboard.black {
