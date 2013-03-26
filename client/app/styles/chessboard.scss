@@ -1,10 +1,4 @@
-#authorizeButton {
-  position: absolute;
-  top: 285px;
-  left: 235px;
-  text-align: center;
-  z-index: 1000;
-}
+@import "compass/css3/transition";
 
 chessboard {
 
@@ -60,6 +54,14 @@ chessboard {
   }
   #a2,#a4,#a6,#a8,#b1,#b3,#b5,#b7,#c2,#c4,#c6,#c8,#d1,#d3,#d5,#d7,#e2,#e4,#e6,#e8,#f1,#f3,#f5,#f7,#g2,#g4,#g6,#g8,#h1,#h3,#h5,#h7{
     background: #333;
+  }
+
+  .piece {
+  }
+
+  .animated {
+    @include transition-property(top, left);
+    @include transition-duration(0.5s);
   }
 
   #a1, .a1 {left: 0%; top:87.5%}
@@ -127,6 +129,52 @@ chessboard {
   #h7, .h7 {left: 87.5%; top:12.5%}
   #h8, .h8 {left: 87.5%; top:0.0%}
 
+<<<<<<< HEAD:app/styles/chessboard.scss
+=======
+  .captured {
+    left: 112.5%;
+  }
+
+  $colorWhite: #fff;
+  $shadowWhite: 1px 1px 1px #333, -1px 1px 1px #333, 1px -1px 1px #333, -1px -1px 1px #333;
+  $colorBlack: #333;
+  $shadowBlack: 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff;
+  
+  #PBa:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBb:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBc:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBd:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBe:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBf:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBg:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #PBh:after {content: '♟'; color: $colorBlack; text-shadow: $shadowBlack}
+  #RBa:after {content: '♜'; color: $colorBlack; text-shadow: $shadowBlack}
+  #RBh:after {content: '♜'; color: $colorBlack; text-shadow: $shadowBlack}
+  #NBb:after {content: '♞'; color: $colorBlack; text-shadow: $shadowBlack}
+  #NBg:after {content: '♞'; color: $colorBlack; text-shadow: $shadowBlack}
+  #BBc:after {content: '♝'; color: $colorBlack; text-shadow: $shadowBlack}
+  #BBf:after {content: '♝'; color: $colorBlack; text-shadow: $shadowBlack}
+  #QBd:after {content: '♛'; color: $colorBlack; text-shadow: $shadowBlack}
+  #KBe:after {content: '♚'; color: $colorBlack; text-shadow: $shadowBlack}
+
+  #PWa:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWb:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWc:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWd:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWe:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWf:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWg:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #PWh:after {content: '♟'; color: $colorWhite; text-shadow: $shadowWhite}
+  #RWa:after {content: '♜'; color: $colorWhite; text-shadow: $shadowWhite}
+  #RWh:after {content: '♜'; color: $colorWhite; text-shadow: $shadowWhite}
+  #NWb:after {content: '♞'; color: $colorWhite; text-shadow: $shadowWhite}
+  #NWg:after {content: '♞'; color: $colorWhite; text-shadow: $shadowWhite}
+  #BWc:after {content: '♝'; color: $colorWhite; text-shadow: $shadowWhite}
+  #BWf:after {content: '♝'; color: $colorWhite; text-shadow: $shadowWhite}
+  #QWd:after {content: '♛'; color: $colorWhite; text-shadow: $shadowWhite}
+  #KWe:after {content: '♚'; color: $colorWhite; text-shadow: $shadowWhite}
+
+>>>>>>> e4174fdadaa16847252166bcdff828c08df32279:client/app/styles/chessboard.scss
 }
 
 chessboard.black {
