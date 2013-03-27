@@ -62,43 +62,42 @@ chessboard {
 
   .capturedW {
     opacity: 0.25;
-    &#PWa {left: 0%; top:100.0%}
-    &#PWb {left: 12.5%; top:100.0%} 
-    &#PWc {left: 25%; top:100.0%} 
-    &#PWd {left: 37.5%; top:100.0%} 
-    &#PWe {left: 50%; top:100.0%} 
-    &#PWf {left: 62.5%; top:100.0%} 
-    &#PWg {left: 75%; top:100.0%} 
-    &#PWh {left: 87.5%; top:100.0%}
-    &#RWa { left: 0%; top:112.5%; }
-    &#RWh { left: 87.5%; top:112.5%; }
-    &#NWb { left: 12.5%; top:112.5%; }
-    &#NWg { left: 75%; top:112.5%; }
-    &#BWc { left: 25%; top:112.5%; }
-    &#BWf { left: 62.5%; top:112.5%; }
-    &#QWd { left: 37.5%; top:112.5%; }
-    &#KWe { left: 50%; top:112.5%; }
+    &#PWa {left: 0%; top:-12.5%}
+    &#PWb {left: 12.5%; top:-12.5%} 
+    &#PWc {left: 25%; top:-12.5%} 
+    &#PWd {left: 37.5%; top:-12.5%} 
+    &#PWe {left: 50%; top:-12.5%} 
+    &#PWf {left: 62.5%; top:-12.5%} 
+    &#PWg {left: 75%; top:-12.5%} 
+    &#PWh {left: 87.5%; top:-12.5%}
+    &#RWa { left: 0%; top:-25%; }
+    &#RWh { left: 87.5%; top:-25%; }
+    &#NWb { left: 12.5%; top:-25%; }
+    &#NWg { left: 75%; top:-25%; }
+    &#BWc { left: 25%; top:-25%; }
+    &#BWf { left: 62.5%; top:-25%; }
+    &#QWd { left: 37.5%; top:-25%; }
+    &#KWe { left: 50%; top:-25%; }
   }
-
 
   .capturedB {
     opacity: 0.25;
-    &#PBa {left: 0%; top:-12.5%}
-    &#PBb {left: 12.5%; top:-12.5%} 
-    &#PBc {left: 25%; top:-12.5%} 
-    &#PBd {left: 37.5%; top:-12.5%} 
-    &#PBe {left: 50%; top:-12.5%} 
-    &#PBf {left: 62.5%; top:-12.5%} 
-    &#PBg {left: 75%; top:-12.5%} 
-    &#PBh {left: 87.5%; top:-12.5%}
-    &#RBa { left: 0%; top:-25%; }
-    &#RBh { left: 87.5%; top:-25%; }
-    &#NBb { left: 12.5%; top:-25%; }
-    &#NBg { left: 75%; top:-25%; }
-    &#BBc { left: 25%; top:-25%; }
-    &#BBf { left: 62.5%; top:-25%; }
-    &#QBd { left: 37.5%; top:-25%; }
-    &#KBe { left: 50%; top:-25%; }
+    &#PBa {left: 0%; top:100%}
+    &#PBb {left: 12.5%; top:100%} 
+    &#PBc {left: 25%; top:100%} 
+    &#PBd {left: 37.5%; top:100%} 
+    &#PBe {left: 50%; top:100%} 
+    &#PBf {left: 62.5%; top:100%} 
+    &#PBg {left: 75%; top:100%} 
+    &#PBh {left: 87.5%; top:100%}
+    &#RBa { left: 0%; top:112.5%; }
+    &#RBh { left: 87.5%; top:112.5%; }
+    &#NBb { left: 12.5%; top:112.5%; }
+    &#NBg { left: 75%; top:112.5%; }
+    &#BBc { left: 25%; top:112.5%; }
+    &#BBf { left: 62.5%; top:112.5%; }
+    &#QBd { left: 37.5%; top:112.5%; }
+    &#KBe { left: 50%; top:112.5%; }
   }
 
   #a1, .a1 {left: 0%; top:87.5%}
@@ -269,42 +268,41 @@ chessboard.black {
   #h8, .h8 {left: 0%; top:87.5%}
 
   .capturedB {
-    &#PBa {left: 0%; top:100.0%}
-    &#PBb {left: 12.5%; top:100.0%} 
-    &#PBc {left: 25%; top:100.0%} 
-    &#PBd {left: 37.5%; top:100.0%} 
-    &#PBe {left: 50%; top:100.0%} 
-    &#PBf {left: 62.5%; top:100.0%} 
-    &#PBg {left: 75%; top:100.0%} 
-    &#PBh {left: 87.5%; top:100.0%}
-    &#RBa { left: 0%; top:112.5%; }
-    &#RBh { left: 87.5%; top:112.5%; }
-    &#NBb { left: 12.5%; top:112.5%; }
-    &#NBg { left: 75%; top:112.5%; }
-    &#BBc { left: 25%; top:112.5%; }
-    &#BBf { left: 62.5%; top:112.5%; }
-    &#QBd { left: 37.5%; top:112.5%; }
-    &#KBe { left: 50%; top:112.5%; }
+    &#PBa {left: 0%; top:-12.5%}
+    &#PBb {left: 12.5%; top:-12.5%} 
+    &#PBc {left: 25%; top:-12.5%} 
+    &#PBd {left: 37.5%; top:-12.5%} 
+    &#PBe {left: 50%; top:-12.5%} 
+    &#PBf {left: 62.5%; top:-12.5%} 
+    &#PBg {left: 75%; top:-12.5%} 
+    &#PBh {left: 87.5%; top:-12.5%}
+    &#RBa { left: 0%; top:-25%; }
+    &#RBh { left: 87.5%; top:-25%; }
+    &#NBb { left: 12.5%; top:-25%; }
+    &#NBg { left: 75%; top:-25%; }
+    &#BBc { left: 25%; top:-25%; }
+    &#BBf { left: 62.5%; top:-25%; }
+    &#QBd { left: 37.5%; top:-25%; }
+    &#KBe { left: 50%; top:-25%; }
   }
 
-
   .capturedW {
-    &#PWa {left: 0%; top:-12.5%}
-    &#PWb {left: 12.5%; top:-12.5%} 
-    &#PWc {left: 25%; top:-12.5%} 
-    &#PWd {left: 37.5%; top:-12.5%} 
-    &#PWe {left: 50%; top:-12.5%} 
-    &#PWf {left: 62.5%; top:-12.5%} 
-    &#PWg {left: 75%; top:-12.5%} 
-    &#PWh {left: 87.5%; top:-12.5%}
-    &#RWa { left: 0%; top:-25%; }
-    &#RWh { left: 87.5%; top:-25%; }
-    &#NWb { left: 12.5%; top:-25%; }
-    &#NWg { left: 75%; top:-25%; }
-    &#BWc { left: 25%; top:-25%; }
-    &#BWf { left: 62.5%; top:-25%; }
-    &#QWd { left: 37.5%; top:-25%; }
-    &#KWe { left: 50%; top:-25%; }
+    &#PWa {left: 0%; top:100%}
+    &#PWb {left: 12.5%; top:100%} 
+    &#PWc {left: 25%; top:100%} 
+    &#PWd {left: 37.5%; top:100%} 
+    &#PWe {left: 50%; top:100%} 
+    &#PWf {left: 62.5%; top:100%} 
+    &#PWg {left: 75%; top:100%} 
+    &#PWh {left: 87.5%; top:100%}
+    &#RWa { left: 0%; top:112.5%; }
+    &#RWh { left: 87.5%; top:112.5%; }
+    &#NWb { left: 12.5%; top:112.5%; }
+    &#NWg { left: 75%; top:112.5%; }
+    &#BWc { left: 25%; top:112.5%; }
+    &#BWf { left: 62.5%; top:112.5%; }
+    &#QWd { left: 37.5%; top:112.5%; }
+    &#KWe { left: 50%; top:112.5%; }
   }
 
 }
