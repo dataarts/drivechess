@@ -7,7 +7,7 @@ angular.module('chessApp')
     var letters = 'abcdefgh';
     for (i = 0; i < 8; i++) {
       var letter = letters[i];
-      for (j = 0; j < 8; j++) {
+      for (j = 0; j < 12; j++) {
         template += '<div id="' + (letter + (j + 1)) + '" class="cell"></div>\n';
       }
     }
