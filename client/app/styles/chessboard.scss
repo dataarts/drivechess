@@ -60,7 +60,7 @@ chessboard {
     @include transition-duration(0.5s);
   }
 
-  .capturedW {
+  .captured {
     opacity: 0.25;
     &#PWa {left: 0%; top:-12.5%}
     &#PWb {left: 12.5%; top:-12.5%} 
@@ -78,10 +78,7 @@ chessboard {
     &#BWf { left: 62.5%; top:-25%; }
     &#QWd { left: 37.5%; top:-25%; }
     &#KWe { left: 50%; top:-25%; }
-  }
 
-  .capturedB {
-    opacity: 0.25;
     &#PBa {left: 0%; top:100%}
     &#PBb {left: 12.5%; top:100%} 
     &#PBc {left: 25%; top:100%} 
@@ -267,7 +264,7 @@ chessboard.black {
   #h7, .h7 {left: 0%; top:75.0%}
   #h8, .h8 {left: 0%; top:87.5%}
 
-  .capturedB {
+  .captured {
     &#PBa {left: 0%; top:-12.5%}
     &#PBb {left: 12.5%; top:-12.5%} 
     &#PBc {left: 25%; top:-12.5%} 
@@ -284,9 +281,7 @@ chessboard.black {
     &#BBf { left: 62.5%; top:-25%; }
     &#QBd { left: 37.5%; top:-25%; }
     &#KBe { left: 50%; top:-25%; }
-  }
 
-  .capturedW {
     &#PWa {left: 0%; top:100%}
     &#PWb {left: 12.5%; top:100%} 
     &#PWc {left: 25%; top:100%} 
