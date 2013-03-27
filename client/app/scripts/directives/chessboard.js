@@ -7,7 +7,10 @@ angular.module('chessApp')
     var letters = 'abcdefgh';
     for (i = 0; i < 8; i++) {
       var letter = letters[i];
-      for (j = 0; j < 12; j++) {
+      for (j = 0; j < 8; j++) {
+        template += '<div id="' + (letter + (j + 1)) + '" class="cell droppable"></div>\n';
+      }
+      for (j = 8; j < 12; j++) {
         template += '<div id="' + (letter + (j + 1)) + '" class="cell"></div>\n';
       }
     }
@@ -17,7 +20,7 @@ angular.module('chessApp')
       replace: false,
       transclude: true,
       link: function postLink(scope, element, attrs) {
-        element.find('.cell').droppable({
+        element.find('.droppable').droppable({
           out: function(event, ui) {
             $(this).removeClass('highlight');
           },
