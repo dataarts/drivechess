@@ -32,10 +32,10 @@ angular.module('chessApp')
             if (pieces.length > 1) {
               var dragId = ui.draggable[0].id;
               pieces.each(function(idx, piece) {
-                if (piece.id != dragId) {
+                if (piece.id !== dragId) {
                   scope.board.set(piece.id, 'captured');
                   // Detect if this was a game winner.
-                  if (piece.id[0] == 'K') {
+                  if (piece.id[0] === 'K') {
                     var color = piece.id[1] === 'W' ? 'Black' : 'White';
                     $log.info(color + ' wins');
                   }
