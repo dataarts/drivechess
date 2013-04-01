@@ -20,6 +20,7 @@ angular.module('chessApp')
       replace: false,
       transclude: true,
       link: function postLink(scope, element, attrs) {
+
         element.find('.droppable').droppable({
           out: function(event, ui) {
             $(this).removeClass('highlight');
@@ -49,6 +50,33 @@ angular.module('chessApp')
             scope.$apply();
           }
         });
+
+        function resize() {
+          var h = $(window).height();
+          var w = $(window).width();
+
+          w = Math.min(w, h / 14 * 8);
+          h = Math.min(h, w);
+
+          var t = $(window).height() / 2 - h / 2;
+          var l = $(window).width() / 2 - w / 2;
+
+          scope.style = {
+            position: 'absolute',
+            width: w + 'px',
+            height: h + 'px',
+            left: l + 'px',
+            top: t + 'px'
+          };
+
+        }
+
+        angular.element(window).bind('resize', function() {
+          scope.$apply(resize);
+        });
+
+        resize();
+
       }
     };
   });

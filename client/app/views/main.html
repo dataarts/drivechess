@@ -10,7 +10,7 @@
 		<button class="btn btn-primary" id="authorizeButton" disabled>Authorize</button>
 	</div>
 </div>
-<chessboard ng-transclude ng-show="authorized">
+<chessboard ng-transclude ng-show="authorized" ng-style="style">
 	<piece id="PWa"></piece>
 	<piece id="PWb"></piece>
 	<piece id="PWc"></piece>
@@ -27,7 +27,6 @@
 	<piece id="BWf"></piece>
 	<piece id="QWd"></piece>
 	<piece id="KWe"></piece>
-	<!-- <div style="clear:both"></div> -->
 	<piece id="PBa"></piece>
 	<piece id="PBb"></piece>
 	<piece id="PBc"></piece>
