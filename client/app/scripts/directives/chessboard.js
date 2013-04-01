@@ -8,6 +8,9 @@ angular.module('chessApp')
     for (i = 0; i < 8; i++) {
       var letter = letters[i];
       for (j = 0; j < 8; j++) {
+        template += '<div id="' + (letter + (j + 1)) + '" class="cell droppable"></div>\n';
+      }
+      for (j = 8; j < 12; j++) {
         template += '<div id="' + (letter + (j + 1)) + '" class="cell"></div>\n';
       }
     }
@@ -17,7 +20,7 @@ angular.module('chessApp')
       replace: false,
       transclude: true,
       link: function postLink(scope, element, attrs) {
-        element.find('.cell').droppable({
+        element.find('.droppable').droppable({
           out: function(event, ui) {
             $(this).removeClass('highlight');
           },
@@ -29,11 +32,10 @@ angular.module('chessApp')
             if (pieces.length > 1) {
               var dragId = ui.draggable[0].id;
               pieces.each(function(idx, piece) {
-                if (piece.id != dragId) {
-                  var captured = piece.id[1] === 'W' ? 'capturedW' : 'capturedB';
-                  scope.board.set(piece.id, captured);
+                if (piece.id !== dragId) {
+                  scope.board.set(piece.id, 'captured');
                   // Detect if this was a game winner.
-                  if (piece.id[0] == 'K') {
+                  if (piece.id[0] === 'K') {
                     var color = piece.id[1] === 'W' ? 'Black' : 'White';
                     $log.info(color + ' wins');
                   }

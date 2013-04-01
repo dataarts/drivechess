@@ -1,5 +1,5 @@
 @import "compass/css3/transition";
-@import "compass/css3/transform";
+@import "compass/css3/box-sizing";
 
 chessboard {
 
@@ -7,25 +7,17 @@ chessboard {
   top: 50%;
   left: 50%;
   background: #ccc;
-  width: 600px;
-  height: 600px;
-  margin-top: -300px;
-  margin-left: -300px;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
   overflow: visible;
 
   .piece, .cell {
     position: absolute;
+    @include box-sizing(border-box);
     height: 12.5%;
     width: 12.5%;
-  }
-
-  div:after {
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 500%;
-    line-height: 100%;
-    text-align: center;
   }
 
   $colorWhite: #fff;
@@ -51,11 +43,15 @@ chessboard {
     background: #c00!important;
   }
 
-  #a1,#a3,#a5,#a7,#b2,#b4,#b6,#b8,#c1,#c3,#c5,#c7,#d2,#d4,#d6,#d8,#e1,#e3,#e5,#e7,#f2,#f4,#f6,#f8,#g1,#g3,#g5,#g7,#h2,#h4,#h6,#h8{
+  #a1,#a3,#a5,#a7,#b2,#b4,#b6,#b8,#c1,#c3,#c5,#c7,#d2,#d4,#d6,#d8,#e1,#e3,#e5,#e7,#f2,#f4,#f6,#f8,#g1,#g3,#g5,#g7,#h2,#h4,#h6,#h8 {
+    background: #333;
+  }
+  #a2,#a4,#a6,#a8,#b1,#b3,#b5,#b7,#c2,#c4,#c6,#c8,#d1,#d3,#d5,#d7,#e2,#e4,#e6,#e8,#f1,#f3,#f5,#f7,#g2,#g4,#g6,#g8,#h1,#h3,#h5,#h7 {
     background: #eee;
   }
-  #a2,#a4,#a6,#a8,#b1,#b3,#b5,#b7,#c2,#c4,#c6,#c8,#d1,#d3,#d5,#d7,#e2,#e4,#e6,#e8,#f1,#f3,#f5,#f7,#g2,#g4,#g6,#g8,#h1,#h3,#h5,#h7{
-    background: #333;
+  #a9,#a10,#a11,#a12,#b9,#b10,#b11,#b12,#c9,#c10,#c11,#c12,#d9,#d10,#d11,#d12,#e9,#e10,#e11,#e12,#f9,#f10,#f11,#f12,#g9,#g10,#g11,#g12,#h9,#h10,#h11,#h12 {
+    background: #666;
+    border: 1px solid #555;
   }
 
   .animated {
@@ -63,16 +59,41 @@ chessboard {
     @include transition-duration(0.5s);
   }
 
-  .capturedW {
-    position: relative;
-    top: 100%;
-    float: right;
-  }
+  .captured {
+    opacity: 0.25;
+    &#PWa {left: 0%; top:-12.5%}
+    &#PWb {left: 12.5%; top:-12.5%} 
+    &#PWc {left: 25%; top:-12.5%} 
+    &#PWd {left: 37.5%; top:-12.5%} 
+    &#PWe {left: 50%; top:-12.5%} 
+    &#PWf {left: 62.5%; top:-12.5%} 
+    &#PWg {left: 75%; top:-12.5%} 
+    &#PWh {left: 87.5%; top:-12.5%}
+    &#RWa { left: 0%; top:-25%; }
+    &#RWh { left: 87.5%; top:-25%; }
+    &#NWb { left: 12.5%; top:-25%; }
+    &#NWg { left: 75%; top:-25%; }
+    &#BWc { left: 25%; top:-25%; }
+    &#BWf { left: 62.5%; top:-25%; }
+    &#QWd { left: 37.5%; top:-25%; }
+    &#KWe { left: 50%; top:-25%; }
 
-  .capturedB {
-    position: relative;
-    top: 100%;
-    float: right;
+    &#PBa {left: 0%; top:100%}
+    &#PBb {left: 12.5%; top:100%} 
+    &#PBc {left: 25%; top:100%} 
+    &#PBd {left: 37.5%; top:100%} 
+    &#PBe {left: 50%; top:100%} 
+    &#PBf {left: 62.5%; top:100%} 
+    &#PBg {left: 75%; top:100%} 
+    &#PBh {left: 87.5%; top:100%}
+    &#RBa { left: 0%; top:112.5%; }
+    &#RBh { left: 87.5%; top:112.5%; }
+    &#NBb { left: 12.5%; top:112.5%; }
+    &#NBg { left: 75%; top:112.5%; }
+    &#BBc { left: 25%; top:112.5%; }
+    &#BBf { left: 62.5%; top:112.5%; }
+    &#QBd { left: 37.5%; top:112.5%; }
+    &#KBe { left: 50%; top:112.5%; }
   }
 
   #a1, .a1 {left: 0%; top:87.5%}
@@ -139,6 +160,39 @@ chessboard {
   #h6, .h6 {left: 87.5%; top:25.0%}
   #h7, .h7 {left: 87.5%; top:12.5%}
   #h8, .h8 {left: 87.5%; top:0.0%}
+
+  #a9, .a9  {left: 0%; top:-12.5%}
+  #a10,.a10 {left: 0%; top:-25.0%}
+  #a11,.a11 {left: 0%; top:100.0%}
+  #a12,.a12 {left: 0%; top:112.5%}
+  #b9, .b9  {left: 12.5%; top:-12.5%}
+  #b10,.b10 {left: 12.5%; top:-25.0%}
+  #b11,.b11 {left: 12.5%; top:100.0%}
+  #b12,.b12 {left: 12.5%; top:112.5%}
+  #c9, .c9  {left: 25.0%; top:-12.5%}
+  #c10,.c10 {left: 25.0%; top:-25.0%}
+  #c11,.c11 {left: 25.0%; top:100.0%}
+  #c12,.c12 {left: 25.0%; top:112.5%}
+  #d9, .d9  {left: 37.5%; top:-12.5%}
+  #d10,.d10 {left: 37.5%; top:-25.0%}
+  #d11,.d11 {left: 37.5%; top:100.0%}
+  #d12,.d12 {left: 37.5%; top:112.5%}
+  #e9, .e9  {left: 50.0%; top:-12.5%}
+  #e10,.e10 {left: 50.0%; top:-25.0%}
+  #e11,.e11 {left: 50.0%; top:100.0%}
+  #e12,.e12 {left: 50.0%; top:112.5%}
+  #f9, .f9  {left: 62.5%; top:-12.5%}
+  #f10,.f10 {left: 62.5%; top:-25.0%}
+  #f11,.f11 {left: 62.5%; top:100.0%}
+  #f12,.f12 {left: 62.5%; top:112.5%}
+  #g9, .g9  {left: 75.0%; top:-12.5%}
+  #g10,.g10 {left: 75.0%; top:-25.0%}
+  #g11,.g11 {left: 75.0%; top:100.0%}
+  #g12,.g12 {left: 75.0%; top:112.5%}
+  #h9, .h9  {left: 87.5%; top:-12.5%}
+  #h10,.h10 {left: 87.5%; top:-25.0%}
+  #h11,.h11 {left: 87.5%; top:100.0%}
+  #h12,.h12 {left: 87.5%; top:112.5%}
 
 }
 
@@ -208,5 +262,41 @@ chessboard.black {
   #h6, .h6 {left: 0%; top:62.5%}
   #h7, .h7 {left: 0%; top:75.0%}
   #h8, .h8 {left: 0%; top:87.5%}
+
+  .captured {
+    &#PBa {left: 0%; top:-12.5%}
+    &#PBb {left: 12.5%; top:-12.5%} 
+    &#PBc {left: 25%; top:-12.5%} 
+    &#PBd {left: 37.5%; top:-12.5%} 
+    &#PBe {left: 50%; top:-12.5%} 
+    &#PBf {left: 62.5%; top:-12.5%} 
+    &#PBg {left: 75%; top:-12.5%} 
+    &#PBh {left: 87.5%; top:-12.5%}
+    &#RBa { left: 0%; top:-25%; }
+    &#RBh { left: 87.5%; top:-25%; }
+    &#NBb { left: 12.5%; top:-25%; }
+    &#NBg { left: 75%; top:-25%; }
+    &#BBc { left: 25%; top:-25%; }
+    &#BBf { left: 62.5%; top:-25%; }
+    &#QBd { left: 37.5%; top:-25%; }
+    &#KBe { left: 50%; top:-25%; }
+
+    &#PWa {left: 0%; top:100%}
+    &#PWb {left: 12.5%; top:100%} 
+    &#PWc {left: 25%; top:100%} 
+    &#PWd {left: 37.5%; top:100%} 
+    &#PWe {left: 50%; top:100%} 
+    &#PWf {left: 62.5%; top:100%} 
+    &#PWg {left: 75%; top:100%} 
+    &#PWh {left: 87.5%; top:100%}
+    &#RWa { left: 0%; top:112.5%; }
+    &#RWh { left: 87.5%; top:112.5%; }
+    &#NWb { left: 12.5%; top:112.5%; }
+    &#NWg { left: 75%; top:112.5%; }
+    &#BWc { left: 25%; top:112.5%; }
+    &#BWf { left: 62.5%; top:112.5%; }
+    &#QWd { left: 37.5%; top:112.5%; }
+    &#KWe { left: 50%; top:112.5%; }
+  }
 
 }
