@@ -13,7 +13,10 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
       		<li><a ng-click="flip()">Flip Board</a></li>
-        	<li class="dropdown">
+      		<li><a ng-click="create()">New</a></li>
+      		<li><a ng-click="open()">Open</a></li>
+      		<li><a ng-click="share()">Share</a></li>
+<!--         	<li class="dropdown">
         		<a href="" class="dropdown-toggle" data-toggle="dropdown">
         			Move History
 	        		<b class="caret"></b>
@@ -40,14 +43,15 @@
 		    			Name of Game
 		    		</a>
 		    	</li>
-        </ul>
+ -->        
+				</ul>
       </div>
 
     </div>
   </div>
 </div>
 
-<div ng-hide="needsAuth || authorized" class="loader" id="loader"></div>
+<div ng-hide="showBoard" class="loader" id="loader"></div>
 <div class="modal" ng-hide="authorized" ng-show="needsAuth">
 	<div class="modal-header">
 		<h3>Drive Chess</h3>
@@ -59,7 +63,22 @@
 		<button class="btn btn-primary" id="authorizeButton" disabled>Authorize</button>
 	</div>
 </div>
-<chessboard ng-transclude ng-show="authorized" ng-style="style">
+
+<!-- <div class="modal" ng-show="showCreator">
+	<div class="modal-header">
+		<h3>Drive Chess</h3>
+	</div>
+	<div class="modal-body">
+		Enter the title for your new game:
+		<input type="text" ng-model="title"></input>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="create()">Create</button>
+	</div>
+</div>
+ -->
+
+<chessboard ng-transclude ng-show="showBoard" ng-style="style">
 	<piece id="PWa"></piece>
 	<piece id="PWb"></piece>
 	<piece id="PWc"></piece>

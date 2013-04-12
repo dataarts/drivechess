@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chessApp')
-  .controller('MainCtrl', function($scope, rtclient) {
+  .controller('MainCtrl', function($scope, rtclient, $log, $location) {
 
     var startState = {
         'PBa': 'a7',
@@ -38,6 +38,8 @@ angular.module('chessApp')
         'KWe': 'e1'
     };
 
+    var appId = 34208184131;
+
     function initializeModel(model) {
       var board = model.createMap(startState);
       model.getRoot().set('board', board);
@@ -45,6 +47,9 @@ angular.module('chessApp')
     }
 
     function onFileLoaded(doc) {
+      console.log(doc);
+      window.doc = doc;
+      $scope.showBoard = true;
       $scope.board = doc.getModel().getRoot().get('board');
       $scope.$apply();
       $scope.board.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
@@ -61,13 +66,14 @@ angular.module('chessApp')
       },
       initializeModel: initializeModel,
       autoCreate: true,
-      defaultTitle: 'DriveChess',
+      defaultTitle: 'Untitled Drive Chess Game',
       onFileLoaded: onFileLoaded
     };
 
     var realtimeLoader = new rtclient.RealtimeLoader(realtimeOptions);
     realtimeLoader.start(function() {
       $scope.authorized = true;
+      $scope.$apply();
     });
 
     $scope.flip = function() {
@@ -77,5 +83,10 @@ angular.module('chessApp')
     $scope.rename = function() {
       console.log('rename game');
     };
+
+    $scope.share = function() { drive.share(rtclient, appId); };
+    $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };
+    $scope.create = function() { window.location.href = '/'; };
+
 
   });
