@@ -1,10 +1,59 @@
+<div id="nav" class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="#">Drive Chess</a>
+
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+      		<li><a ng-click="flip()">Flip Board</a></li>
+        	<li class="dropdown">
+        		<a href="" class="dropdown-toggle" data-toggle="dropdown">
+        			Move History
+	        		<b class="caret"></b>
+	        	</a>
+	        	<ul class="dropdown-menu">
+	        		<li><a href="">K1 B3</a></li>
+	        		<li><a href="">K1 B3</a></li>
+	        		<li><a href="">K1 B3</a></li>
+	        	</ul>
+        	</li>
+        	<li class="dropdown">
+        		<a href="" class="dropdown-toggle" data-toggle="dropdown">
+        			Current Games
+	        		<b class="caret"></b>
+	        	</a>
+	        	<ul class="dropdown-menu">
+	        		<li><a href="">game1</a></li>
+	        		<li><a href="">game2</a></li>
+	        		<li><a href="">game3</a></li>
+	        	</ul>
+        	</li>
+		    	<li>
+		    		<a ng-click="rename()">
+		    			Name of Game
+		    		</a>
+		    	</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div ng-hide="needsAuth || authorized" class="loader" id="loader"></div>
 <div class="modal" ng-hide="authorized" ng-show="needsAuth">
 	<div class="modal-header">
 		<h3>Drive Chess</h3>
 	</div>
 	<div class="modal-body">
-		Your authorization is needed to store you chess games in your Google Drive.
+		Your authorization is needed to store your chess games in your Google Drive.
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-primary" id="authorizeButton" disabled>Authorize</button>

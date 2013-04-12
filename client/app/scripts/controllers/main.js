@@ -70,4 +70,12 @@ angular.module('chessApp')
       $scope.authorized = true;
     });
 
+    $scope.flip = function() {
+      $('chessboard').toggleClass('black');
+    };
+
+    $scope.rename = function() {
+      console.log('rename game');
+    };
+
   });
