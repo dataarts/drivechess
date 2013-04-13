@@ -68,7 +68,6 @@ angular.module('chessApp')
             left: l + 'px',
             top: t + 'px'
           };
-
         }
 
         angular.element(window).bind('resize', function() {

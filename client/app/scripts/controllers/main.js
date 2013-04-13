@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chessApp')
-  .controller('MainCtrl', function($scope, rtclient, $log, $location) {
+  .controller('MainCtrl', function($scope, rtclient, $log, $location, debounce) {
 
     var startState = {
         'PBa': 'a7',
@@ -47,13 +47,31 @@ angular.module('chessApp')
     }
 
     function onFileLoaded(doc) {
-      console.log(doc);
-      window.doc = doc;
       $scope.showBoard = true;
       $scope.board = doc.getModel().getRoot().get('board');
       $scope.$apply();
       $scope.board.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
         $scope.$apply();
+      });
+      // Set the title and make it renamable
+      gapi.client.load('drive', 'v2', function() {
+        var request = gapi.client.drive.files.get({
+          fileId: rtclient.params['fileId']
+        });
+        request.execute(function(resp) {
+          $scope.title = resp.title;
+          window.debounce = debounce;
+          $scope.updateTitle = debounce(function() {
+            var body = {title: $scope.title};
+            console.log(body);
+            var renameRequest = gapi.client.drive.files.patch({
+              fileId: rtclient.params['fileId'],
+              resource: body
+            });
+            renameRequest.execute();
+          }, 500);
+          $scope.$apply();
+        });
       });
     }
 
@@ -78,10 +96,6 @@ angular.module('chessApp')
 
     $scope.flip = function() {
       $('chessboard').toggleClass('black');
-    };
-
-    $scope.rename = function() {
-      console.log('rename game');
     };
 
     $scope.share = function() { drive.share(rtclient, appId); };
