@@ -68,7 +68,7 @@ angular.module('chessApp')
               fileId: rtclient.params['fileId'],
               resource: body
             });
-            renameRequest.execute();
+            renameRequest.execute(function(resp) {});
           }, 500);
           $scope.$apply();
         });
