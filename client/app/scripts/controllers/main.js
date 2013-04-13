@@ -63,7 +63,6 @@ angular.module('chessApp')
           window.debounce = debounce;
           $scope.updateTitle = debounce(function() {
             var body = {title: $scope.title};
-            console.log(body);
             var renameRequest = gapi.client.drive.files.patch({
               fileId: rtclient.params['fileId'],
               resource: body
