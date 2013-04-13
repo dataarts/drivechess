@@ -100,7 +100,10 @@ angular.module('chessApp')
 
     $scope.share = function() { drive.share(rtclient, appId); };
     $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };
-    $scope.create = function() { realtimeLoader.createNewFileAndRedirect(); };
+    $scope.create = function() { 
+      $scope.showBoard = false;
+      realtimeLoader.createNewFileAndRedirect(); 
+    };
 
 
   });
