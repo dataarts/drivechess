@@ -74,6 +74,24 @@ angular.module('chessApp')
       });
     }
 
+    gapi.client.load('drive', 'v2', function() {
+      window.sendEmail = function() {
+        var request = gapi.client.drive.permissions.insert({
+          fileId: rtclient.params['fileId'],
+          emailMessage: 'Hello my friend. Your move!!!!!!!!!!!!',
+          resource: {
+            value: 'dougfritz@gmail.com',
+            type: 'user',
+            role: 'owner'
+          }
+        });
+        request.execute(function(resp) {
+          console.log(resp);
+        });
+        console.log('email');
+      };
+    });
+
     var realtimeOptions = {
       clientId: '34208184131.apps.googleusercontent.com',
       authButtonElementId: 'authorizeButton',
