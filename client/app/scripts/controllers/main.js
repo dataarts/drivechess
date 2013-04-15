@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chessApp')
-  .controller('MainCtrl', function($scope, rtclient) {
+  .controller('MainCtrl', function($scope, rtclient, $log, $location, debounce) {
 
     var startState = {
         'PBa': 'a7',
@@ -38,6 +38,8 @@ angular.module('chessApp')
         'KWe': 'e1'
     };
 
+    var appId = 34208184131;
+
     function initializeModel(model) {
       var board = model.createMap(startState);
       model.getRoot().set('board', board);
@@ -45,10 +47,30 @@ angular.module('chessApp')
     }
 
     function onFileLoaded(doc) {
+      $scope.showBoard = true;
       $scope.board = doc.getModel().getRoot().get('board');
       $scope.$apply();
       $scope.board.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
         $scope.$apply();
+      });
+      // Set the title and make it renamable
+      gapi.client.load('drive', 'v2', function() {
+        var request = gapi.client.drive.files.get({
+          fileId: rtclient.params['fileId']
+        });
+        request.execute(function(resp) {
+          $scope.title = resp.title;
+          window.debounce = debounce;
+          $scope.updateTitle = debounce(function() {
+            var body = {title: $scope.title};
+            var renameRequest = gapi.client.drive.files.patch({
+              fileId: rtclient.params['fileId'],
+              resource: body
+            });
+            renameRequest.execute(function(resp) {});
+          }, 500);
+          $scope.$apply();
+        });
       });
     }
 
@@ -61,13 +83,26 @@ angular.module('chessApp')
       },
       initializeModel: initializeModel,
       autoCreate: true,
-      defaultTitle: 'DriveChess',
+      defaultTitle: 'Untitled Drive Chess Game',
       onFileLoaded: onFileLoaded
     };
 
     var realtimeLoader = new rtclient.RealtimeLoader(realtimeOptions);
     realtimeLoader.start(function() {
       $scope.authorized = true;
+      $scope.$apply();
     });
+
+    $scope.flip = function() {
+      $('chessboard').toggleClass('black');
+    };
+
+    $scope.share = function() { drive.share(rtclient, appId); };
+    $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };
+    $scope.create = function() { 
+      $scope.showBoard = false;
+      realtimeLoader.createNewFileAndRedirect(); 
+    };
+
 
   });
