@@ -73,11 +73,19 @@ angular.module('chessApp')
 
       var collaborators = doc.getCollaborators();
       for (var i in collaborators) {
-        if (collaborators[i].isMe) $scope.me = collaborators[i];
+        if (collaborators[i].isMe) {
+          $scope.me = collaborators[i];
+          if ($scope.players.get('blackPlayerID') == $scope.me.userId) {
+            $('chessboard').addClass('black');
+          }
+        }
       }
 
       $scope.$apply();
       $scope.board.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
+        $scope.$apply();
+      });
+      $scope.players.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
         $scope.$apply();
       });
 
@@ -191,14 +199,17 @@ angular.module('chessApp')
 
       var whiteName = $scope.players.get('whitePlayerName');
       var blackName = $scope.players.get('blackPlayerName');
-      if (whiteName && blackName) {
+      if (whiteName && blackName && $scope.title == 'Untitle Game') {
         $scope.title = whiteName.split(' ')[0] + ' vs. ' + blackName.split(' ')[0];
-        var whiteEmail = $scope.players.get('whitePlayerEmail');
-        var blackEmail = $scope.players.get('blackPlayerEmail');
+        $scope.updateTitle();
+      }
+
+      var whiteEmail = $scope.players.get('whitePlayerEmail');
+      var blackEmail = $scope.players.get('blackPlayerEmail');
+      if (whiteEmail && blackEmail) {
         comment('It is on! +' + whiteEmail + ' vs +' + blackEmail, function(resp) {
           $scope.players.set('commentId', resp.commentId);
         });
-        $scope.updateTitle();
       }
     };
 
