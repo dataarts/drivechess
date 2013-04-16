@@ -41,9 +41,11 @@ angular.module('chessApp')
     var playersState = {
       'whitePlayerID': '',
       'whitePlayerName': '',
+      'whitePlayerEmail': '',
       'whitePlayerPhoto': '',
       'blackPlayerID': '',
       'blackPlayerName': '',
+      'blackPlayerEmail': '',
       'blackPlayerPhoto': '',
       'turn': 'white'
     }
@@ -122,6 +124,8 @@ angular.module('chessApp')
       $scope.players.set(color+'PlayerID', $scope.me.userId);
       $scope.players.set(color+'PlayerName', $scope.me.displayName);
       $scope.players.set(color+'PlayerPhoto', $scope.me.photoUrl);
+      if ( color == 'black') $('chessboard').addClass('black');
+      if ( color == 'white') $('chessboard').removeClass('black');
     }
 
     $scope.share = function() { drive.share(rtclient, appId); };

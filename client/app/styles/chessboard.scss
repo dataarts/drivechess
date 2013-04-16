@@ -11,6 +11,14 @@ chessboard {
   left: 0;
   overflow: visible;
 
+  .playWhite, .playBlack, .inviteFriend {
+    position: absolute;
+    @include box-sizing(border-box);
+    width: 120px;
+    height: 32px;
+    margin: -16px 0 0 -60px;
+  }
+
   .piece, .cell {
     position: absolute;
     @include box-sizing(border-box);
@@ -192,6 +200,15 @@ chessboard {
   #h11,.h11 {left: 87.5%; top:100.0%}
   #h12,.h12 {left: 87.5%; top:112.5%}
 
+  .playWhite {
+    left: 50%;
+    top: 112.5%;
+  }
+  .playBlack {
+    left: 50%;
+    top: -12.5%;
+  }
+
 }
 
 chessboard.black {
@@ -260,6 +277,15 @@ chessboard.black {
   #h6, .h6 {left: 0%; top:62.5%}
   #h7, .h7 {left: 0%; top:75.0%}
   #h8, .h8 {left: 0%; top:87.5%}
+
+  .playWhite {
+    left: 50%;
+    top: -12.5%;
+  }
+  .playBlack {
+    left: 50%;
+    top: 112.5%;
+  }
 
   .captured {
     &#PBa {left: 0%; top:-12.5%}
