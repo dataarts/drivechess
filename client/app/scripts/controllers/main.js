@@ -73,7 +73,12 @@ angular.module('chessApp')
 
       var collaborators = doc.getCollaborators();
       for (var i in collaborators) {
-        if (collaborators[i].isMe) $scope.me = collaborators[i];
+        if (collaborators[i].isMe) {
+          $scope.me = collaborators[i];
+          if ($scope.players.get('blackPlayerID') == $scope.me.userId) {
+            $('chessboard').addClass('black');
+          }
+        }
       }
 
       $scope.$apply();
@@ -116,22 +121,8 @@ angular.module('chessApp')
       });
     }
 
-    gapi.client.load('drive', 'v2', function() {
-      window.permissions = function(email, msg, role, callback) {
-        callback = callback || function() {};
-        var request = gapi.client.drive.permissions.insert({
-          fileId: rtclient.params['fileId'],
-          emailMessage: msg || 'Hello friend',
-          sendNotificationEmails: true,
-          resource: {
-            value: email,
-            type: 'user',
-            role: role || 'owner'
-          }
-        });
-        request.execute(callback);
-      };
-      window.comment = function(move, callback) {
+    function comment(move, callback) {
+      gapi.client.load('drive', 'v2', function() {
         callback = callback || function() {};
         var request = gapi.client.drive.comments.insert({
           fileId: rtclient.params['fileId'],
@@ -140,15 +131,11 @@ angular.module('chessApp')
           }
         });
         request.execute(callback);
-      };
-      window.listcomments = function(callback) {
-        callback = callback || function() {};
-        var request = gapi.client.drive.comments.list({
-          fileId: rtclient.params['fileId']
-        });
-        request.execute(callback);
-      };
-      window.reply = function(commentId, reply, callback) {
+      });
+    }
+
+    function reply(commentId, reply, callback) {
+      gapi.client.load('drive', 'v2', function() {
         callback = callback || function() {};
         var request = gapi.client.drive.replies.insert({
           fileId: rtclient.params['fileId'],
@@ -158,8 +145,8 @@ angular.module('chessApp')
           }
         });
         request.execute(callback);
-      };
-    });
+      });
+    }
 
     var realtimeOptions = {
       clientId: '34208184131.apps.googleusercontent.com',
@@ -195,14 +182,17 @@ angular.module('chessApp')
 
       var whiteName = $scope.players.get('whitePlayerName');
       var blackName = $scope.players.get('blackPlayerName');
-      if (whiteName && blackName) {
+      if (whiteName && blackName && $scope.title == 'Untitle Game') {
         $scope.title = whiteName.split(' ')[0] + ' vs. ' + blackName.split(' ')[0];
-        var whiteEmail = $scope.players.get('whitePlayerEmail');
-        var blackEmail = $scope.players.get('blackPlayerEmail');
+        $scope.updateTitle();
+      }
+
+      var whiteEmail = $scope.players.get('whitePlayerEmail');
+      var blackEmail = $scope.players.get('blackPlayerEmail');
+      if (whiteEmail && blackEmail) {
         comment('It is on! +' + whiteEmail + ' vs +' + blackEmail, function(resp) {
           $scope.players.set('commentId', resp.commentId);
         });
-        $scope.updateTitle();
       }
     };
 
