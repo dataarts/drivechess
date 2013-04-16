@@ -144,7 +144,7 @@ angular.module('chessApp')
         scope: [
           rtclient.INSTALL_SCOPE,
           rtclient.FILE_SCOPE,
-          rtclient.READONLY_SCOPE,
+          // rtclient.READONLY_SCOPE,
           rtclient.DRIVE_SCOPE,
           rtclient.EMAIL,
           rtclient.OPENID_SCOPE
@@ -160,7 +160,7 @@ angular.module('chessApp')
       scope: [
         rtclient.INSTALL_SCOPE,
         rtclient.FILE_SCOPE,
-        rtclient.READONLY_SCOPE,
+        // rtclient.READONLY_SCOPE,
         rtclient.DRIVE_SCOPE,
         rtclient.EMAIL,
         rtclient.OPENID_SCOPE
