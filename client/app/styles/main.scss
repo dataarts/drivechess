@@ -23,6 +23,17 @@ body {
 #nav {
 	position: relative;
 	z-index: 10000;
+
+  .gameTitle {
+    margin-left: 10px;
+  }
+  .gameTitleEdit {
+    margin-bottom: 0;
+    margin-left: 5px;
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+  }
+
 }
 
 #players {

@@ -4,7 +4,7 @@ angular.module('chessApp')
   .directive('editable', function($timeout) {
   return {
     template: [
-      '<span ng-hide="editMode" ng-click="editMode = true">{{value}}</span><input ng-show="editMode" ng-model="value" type="text" />'
+      '<span ng-hide="editMode" ng-click="editMode = true" class="gameTitle">{{value}}</span><input ng-show="editMode" ng-model="value" type="text" class="gameTitleEdit" />'
     ].join('\n'),
     require: 'ngModel',
     restrict: 'E',
@@ -44,6 +44,7 @@ angular.module('chessApp')
         .bind('keypress', function(evt) {
           if (evt.charCode === 13) {
             $scope.editMode = false;
+            $scope.$apply();
           }
         });
     }
