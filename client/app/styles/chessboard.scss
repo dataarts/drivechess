@@ -46,7 +46,15 @@ chessboard {
   #KWe { background: url('../images/KW.svg'); background-size: 100% 100%; }
 
   .highlight {
-    background: #c00!important;
+    background: #DD4B39!important;
+  }
+
+  .from {
+    background: #3D9400!important;
+  }
+
+  .to {
+    background: #4D90FE!important;
   }
 
   #a1,#a3,#a5,#a7,#b2,#b4,#b6,#b8,#c1,#c3,#c5,#c7,#d2,#d4,#d6,#d8,#e1,#e3,#e5,#e7,#f2,#f4,#f6,#f8,#g1,#g3,#g5,#g7,#h2,#h4,#h6,#h8 {
@@ -56,8 +64,9 @@ chessboard {
     background: #eee;
   }
   #a9,#a10,#a11,#a12,#b9,#b10,#b11,#b12,#c9,#c10,#c11,#c12,#d9,#d10,#d11,#d12,#e9,#e10,#e11,#e12,#f9,#f10,#f11,#f12,#g9,#g10,#g11,#g12,#h9,#h10,#h11,#h12 {
-    background: #666;
-    border: 1px solid #555;
+    background: rgba(100, 100, 100, 0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    // background: transparent;
   }
 
   .animated {

@@ -8,7 +8,8 @@
         <span class="icon-bar"></span>
       </a>
 
-      <a class="brand" href="#">Drive Chess</a>
+      <!-- <a class="brand" href="#">Drive Chess</a> -->
+      <editable class="brand" ng-model="title" ng-change="updateTitle()" />
 
       <div id="players" class="pull-right">
         <img ng-show="players.get('whitePlayerID')" ng-src="{{players.get('whitePlayerPhoto')}}" alt="{{players.get('blackPlayerName')}}" class="img-rounded avatarWhite">
@@ -23,9 +24,7 @@
           <li><a ng-click="create()">New</a></li>
           <li><a ng-click="open()">Open</a></li>
           <li><a ng-click="share()">Share</a></li>
-          <li>
-              <editable class="navbar-text" ng-model="title" ng-change="updateTitle()" />
-          </li>
+          <li><a href="http://github.com/dataarts/drivechess">About</a></li>
         </ul>
       </div>
 

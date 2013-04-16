@@ -8,18 +8,34 @@ angular.module('chessApp')
     for (i = 0; i < 8; i++) {
       var letter = letters[i];
       for (j = 0; j < 8; j++) {
-        template += '<div id="' + (letter + (j + 1)) + '" class="cell droppable"></div>\n';
-      }
-      for (j = 8; j < 12; j++) {
-        template += '<div id="' + (letter + (j + 1)) + '" class="cell"></div>\n';
-      }
+        var id = (letter + (j + 1));
+        var bindLast = 'ng-class="lastMove(\'' + id + '\')"'; 
+        template += '<div id="' + id + '" class="cell droppable" ' + bindLast + ' ></div>\n';
+     }
+     for (j = 8; j < 12; j++) {
+      template += '<div id="' + (letter + (j + 1)) + '" class="cell"></div>\n';
     }
-    return {
+  }
+  return {
       template: template,
       restrict: 'E',
       replace: false,
       transclude: true,
       link: function postLink(scope, element, attrs) {
+
+        scope.lastMove = function(id) {
+          if(scope.history && scope.history.length > 0) {
+            var move = scope.history.get(scope.history.length-1);
+            var from = move.substring(0,2);
+            var to = move.substring(2);
+            if (id == from) {
+              return 'from';
+            } else if (id == to) {
+              return 'to';
+            }
+          }
+          return '';
+        }
 
         element.find('.droppable').droppable({
           out: function(event, ui) {
@@ -31,18 +47,20 @@ angular.module('chessApp')
             ui.draggable.css({'top': '', 'left': ''});
             var pieces = element.find('.' + position);
             var dragId = ui.draggable[0].id;
-            pieces.each(function(idx, piece) {
-              if (piece.id !== dragId) {
-                scope.board.set(piece.id, 'captured');
-                // Detect if this was a game winner.
-                if (piece.id[0] === 'K') {
-                  var color = piece.id[1] === 'W' ? 'Black' : 'White';
-                  $log.info(color + ' wins');
+            if (pieces.length > 1) {
+              pieces.each(function(idx, piece) {
+                if (piece.id !== dragId) {
+                  scope.board.set(piece.id, 'captured');
+                  // Detect if this was a game winner.
+                  if (piece.id[0] === 'K') {
+                    var color = piece.id[1] === 'W' ? 'Black' : 'White';
+                    $log.info(color + ' wins');
+                  }
+                } else {
                 }
-              } else {
-                scope.$emit('move', piece.id, position);
-              }
-            });
+              });
+            }
+            scope.$emit('move', dragId, ui.draggable.data('from'), position);
           },
           over: function(event, ui) {
             $(this).addClass('highlight');

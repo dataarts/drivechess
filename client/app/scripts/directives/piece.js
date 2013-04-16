@@ -20,7 +20,8 @@ angular.module('chessApp')
           zIndex: 100,
           start: function(event, ui) {
             element.removeClass('animated');
-            //console.log('start');
+            var position = this.className.split(' ').filter(function(x) {return x.length == 2})[0];
+            $(this).data('from', position);
           },
           stop: function(event, ui) {
             element.addClass('animated');
