@@ -1,5 +1,6 @@
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
+@import "compass/css3/box-sizing";
 
 @import "chessboard";
 
@@ -36,6 +37,16 @@ body {
     color: #ddd;
     position: relative;
     top: 4px;
+  }
+
+  .avatarBlack {
+    @include box-sizing(border-box);
+    border: 2px solid #000;
+  }
+
+  .avatarWhite {
+    @include box-sizing(border-box);
+    border: 2px solid #ddd;
   }
 
 }

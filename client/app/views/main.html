@@ -9,26 +9,26 @@
       </a>
 
       <a class="brand" href="#">Drive Chess</a>
+
       <div id="players" class="pull-right">
-        <a ng-hide="players.get('whitePlayerID')" ng-click="chooseSide('white')" class="btn">Play as white</a>
-        <img ng-show="players.get('whitePlayerID')" src="{{players.get('whitePlayerPhoto')}}" alt="{{players.get('blackPlayerName')}}" class="img-rounded">
-        <span ng-hide="!players.get('whitePlayerID') || !players.get('blackPlayerID')" class="vs">VS.</span>
-        <a ng-show="!players.get('blackPlayerID')" ng-click="chooseSide('black')" class="btn btn-inverse">Play as black</a>
-        <img ng-show="players.get('blackPlayerID')" src="{{players.get('blackPlayerPhoto')}}" alt="{{players.get('blackPlayerName')}}" class="img-rounded">
+        <img ng-show="players.get('whitePlayerID')" ng-src="{{players.get('whitePlayerPhoto')}}" alt="{{players.get('blackPlayerName')}}" class="img-rounded avatarWhite">
+        <span ng-hide="!players.get('whitePlayerID') || !players.get('blackPlayerID')" class="vs">vs.</span>
+        <img ng-show="players.get('blackPlayerID')" ng-src="{{players.get('blackPlayerPhoto')}}" alt="{{players.get('blackPlayerName')}}" class="img-rounded avatarBlack">
         <a ng-show="!players.get('whitePlayerID') || !players.get('blackPlayerID')" ng-click="share()" class="btn btn-primary">Invite a friend</a>
       </div>
 
       <div class="nav-collapse collapse">
         <ul class="nav">
-      		<li><a ng-click="flip()">Flip Board</a></li>
-      		<li><a ng-click="create()">New</a></li>
-      		<li><a ng-click="open()">Open</a></li>
-      		<li><a ng-click="share()">Share</a></li>
-      		<li>
-	      			<editable class="navbar-text" ng-model="title" ng-change="updateTitle()" />
- 					</li>
-				</ul>
+          <li><a ng-click="flip()">Flip Board</a></li>
+          <li><a ng-click="create()">New</a></li>
+          <li><a ng-click="open()">Open</a></li>
+          <li><a ng-click="share()">Share</a></li>
+          <li>
+              <editable class="navbar-text" ng-model="title" ng-change="updateTitle()" />
+          </li>
+        </ul>
       </div>
+
 
     </div>
   </div>
@@ -50,6 +50,8 @@
 </div>
 
 <chessboard ng-transclude ng-show="showBoard" ng-style="style">
+  <a ng-hide="players.get('whitePlayerID')" ng-click="chooseSide('white')" class="playWhite btn">Choose white</a>
+  <a ng-show="!players.get('blackPlayerID')" ng-click="chooseSide('black')" class="playBlack btn btn-inverse">Choose black</a>
 	<piece id="PWa"></piece>
 	<piece id="PWb"></piece>
 	<piece id="PWc"></piece>

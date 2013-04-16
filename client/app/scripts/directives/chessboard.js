@@ -30,21 +30,19 @@ angular.module('chessApp')
             $(this).removeClass('highlight');
             ui.draggable.css({'top': '', 'left': ''});
             var pieces = element.find('.' + position);
-            if (pieces.length > 1) {
-              var dragId = ui.draggable[0].id;
-              pieces.each(function(idx, piece) {
-                if (piece.id !== dragId) {
-                  scope.board.set(piece.id, 'captured');
-                  // Detect if this was a game winner.
-                  if (piece.id[0] === 'K') {
-                    var color = piece.id[1] === 'W' ? 'Black' : 'White';
-                    $log.info(color + ' wins');
-                  }
-                } else {
-                  $scope.$emit('move', piece.id + ' to ' + position);
+            var dragId = ui.draggable[0].id;
+            pieces.each(function(idx, piece) {
+              if (piece.id !== dragId) {
+                scope.board.set(piece.id, 'captured');
+                // Detect if this was a game winner.
+                if (piece.id[0] === 'K') {
+                  var color = piece.id[1] === 'W' ? 'Black' : 'White';
+                  $log.info(color + ' wins');
                 }
-              });
-            }
+              } else {
+                scope.$emit('move', piece.id + ' to ' + position);
+              }
+            });
           },
           over: function(event, ui) {
             $(this).addClass('highlight');
