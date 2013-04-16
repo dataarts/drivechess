@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chessApp')
-  .directive('chessboard', function($log) {
+  .directive('chessboard', function($log, $rootScope) {
     var i, j;
     var template = '';
     var letters = 'abcdefgh';
@@ -40,6 +40,8 @@ angular.module('chessApp')
                     var color = piece.id[1] === 'W' ? 'Black' : 'White';
                     $log.info(color + ' wins');
                   }
+                } else {
+                  $scope.$emit('move', piece.id + ' to ' + position);
                 }
               });
             }

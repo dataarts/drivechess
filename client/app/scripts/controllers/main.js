@@ -46,7 +46,7 @@ angular.module('chessApp')
       'blackPlayerName': '',
       'blackPlayerPhoto': '',
       'turn': 'white'
-    }
+    };
 
     var appId = 34208184131;
 
@@ -59,14 +59,14 @@ angular.module('chessApp')
     }
 
     function onFileLoaded(doc) {
-    
+
       $scope.showBoard = true;
       $scope.board = doc.getModel().getRoot().get('board');
       $scope.players = doc.getModel().getRoot().get('players');
 
       var collaborators = doc.getCollaborators();
-      for ( var i in collaborators ) {
-        if ( collaborators[i].isMe ) $scope.me = collaborators[i];
+      for (var i in collaborators) {
+        if (collaborators[i].isMe) $scope.me = collaborators[i];
       }
 
       $scope.$apply();
@@ -80,6 +80,7 @@ angular.module('chessApp')
           fileId: rtclient.params['fileId']
         });
         request.execute(function(resp) {
+          console.log(resp);
           $scope.title = resp.title;
           window.debounce = debounce;
           $scope.updateTitle = debounce(function() {
@@ -94,6 +95,58 @@ angular.module('chessApp')
         });
       });
     }
+
+    gapi.client.load('drive', 'v2', function() {
+      console.log(rtclient.params['fileId']);
+      window.permissions = function(email, msg, role) {
+        console.log('permissions');
+        var request = gapi.client.drive.permissions.insert({
+          fileId: rtclient.params['fileId'],
+          emailMessage: msg || 'Hello friend',
+          sendNotificationEmails: true,
+          resource: {
+            value: email,
+            type: 'user',
+            role: role || 'owner'
+          }
+        });
+        request.execute(function(resp) {
+          console.log(resp);
+        });
+      };
+      window.comment = function(move) {
+        console.log('comment', move);
+        var request = gapi.client.drive.comments.insert({
+          fileId: rtclient.params['fileId'],
+          resource: {
+            content: move || ''
+          }
+        });
+        request.execute(function(resp) {
+          console.log(resp);
+        });
+      };
+      window.listcomments = function() {
+        var request = gapi.client.drive.comments.list({
+          fileId: rtclient.params['fileId']
+        });
+        request.execute(function(resp) {
+          console.log(resp);
+        });
+      };
+      window.reply = function(commentId, reply) {
+        var request = gapi.client.drive.replies.insert({
+          fileId: rtclient.params['fileId'],
+          commentId: commentId,
+          resource: {
+            content: reply
+          }
+        });
+        request.execute(function(resp) {
+          console.log(resp);
+        });
+      };
+    });
 
     var realtimeOptions = {
       clientId: '34208184131.apps.googleusercontent.com',
@@ -117,18 +170,18 @@ angular.module('chessApp')
     $scope.flip = function() {
       $('chessboard').toggleClass('black');
     };
-    
+
     $scope.chooseSide = function(color) {
-      $scope.players.set(color+'PlayerID', $scope.me.userId);
-      $scope.players.set(color+'PlayerName', $scope.me.displayName);
-      $scope.players.set(color+'PlayerPhoto', $scope.me.photoUrl);
-    }
+      $scope.players.set(color + 'PlayerID', $scope.me.userId);
+      $scope.players.set(color + 'PlayerName', $scope.me.displayName);
+      $scope.players.set(color + 'PlayerPhoto', $scope.me.photoUrl);
+    };
 
     $scope.share = function() { drive.share(rtclient, appId); };
     $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };
-    $scope.create = function() { 
+    $scope.create = function() {
       $scope.showBoard = false;
-      realtimeLoader.createNewFileAndRedirect(); 
+      realtimeLoader.createNewFileAndRedirect();
     };
 
 

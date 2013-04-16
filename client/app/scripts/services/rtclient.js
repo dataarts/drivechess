@@ -29,6 +29,8 @@ angular.module('chessApp')
    */
   rtclient.FILE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
 
+  rtclient.DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive';
+  rtclient.READONLY_SCOPE = 'https://www.googleapis.com/auth/drive.readonly';
 
   /**
    * OAuth 2.0 scope for accessing the user's ID.
@@ -141,6 +143,8 @@ angular.module('chessApp')
         scope: [
           rtclient.INSTALL_SCOPE,
           rtclient.FILE_SCOPE,
+          rtclient.READONLY_SCOPE,
+          rtclient.DRIVE_SCOPE,
           rtclient.OPENID_SCOPE
         ],
         user_id: userId,
@@ -154,6 +158,8 @@ angular.module('chessApp')
       scope: [
         rtclient.INSTALL_SCOPE,
         rtclient.FILE_SCOPE,
+        rtclient.READONLY_SCOPE,
+        rtclient.DRIVE_SCOPE,
         rtclient.OPENID_SCOPE
       ],
       user_id: userId,
