@@ -52,6 +52,17 @@ angular.module('chessApp')
 
     var appId = 34208184131;
 
+    $scope.safeApply = function(fn) {
+      var phase = this.$root.$$phase;
+      if(phase == '$apply' || phase == '$digest') {
+        if(fn && (typeof(fn) === 'function')) {
+          fn();
+        }
+      } else {
+        this.$apply(fn);
+      }
+    };
+
     function initializeModel(model) {
       $scope.board = model.createMap(boardState);
       model.getRoot().set('board', $scope.board);
@@ -65,7 +76,6 @@ angular.module('chessApp')
 
     function onFileLoaded(doc) {
 
-      $scope.showBoard = true;
       $scope.board = doc.getModel().getRoot().get('board');
       $scope.players = doc.getModel().getRoot().get('players');
       $scope.history = doc.getModel().getRoot().get('history');
@@ -86,7 +96,7 @@ angular.module('chessApp')
         $scope.$apply();
       });
       $scope.players.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
-        $scope.$apply();
+        $scope.safeApply();
       });
       $scope.history.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
         $scope.$apply();
@@ -119,6 +129,9 @@ angular.module('chessApp')
           $scope.me.email = resp.email;
         });
       });
+
+      $scope.showBoard = true;
+
     }
 
     function comment(move, callback) {
