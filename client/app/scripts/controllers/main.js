@@ -106,7 +106,7 @@ angular.module('chessApp')
       },
       initializeModel: initializeModel,
       autoCreate: true,
-      defaultTitle: 'Untitled Drive Chess Game',
+      defaultTitle: 'Untitled Game',
       onFileLoaded: onFileLoaded
     };
 
@@ -126,6 +126,14 @@ angular.module('chessApp')
       $scope.players.set(color+'PlayerPhoto', $scope.me.photoUrl);
       if ( color == 'black') $('chessboard').addClass('black');
       if ( color == 'white') $('chessboard').removeClass('black');
+
+      var whiteName = $scope.players.get('whitePlayerName');
+      var blackName = $scope.players.get('blackPlayerName');
+      if ( whiteName && blackName ) {
+        $scope.title = whiteName.split(" ")[0] + ' vs. ' + blackName.split(" ")[0];
+        $scope.updateTitle();
+      }
+
     }
 
     $scope.share = function() { drive.share(rtclient, appId); };
