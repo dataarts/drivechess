@@ -95,7 +95,6 @@ angular.module('chessApp')
       });
     }
 
-
     var realtimeOptions = {
       clientId: '34208184131.apps.googleusercontent.com',
       authButtonElementId: 'authorizeButton',
