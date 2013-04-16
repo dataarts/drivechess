@@ -181,21 +181,21 @@ angular.module('chessApp')
     };
 
     $scope.chooseSide = function(color) {
-      $scope.players.set(color+'PlayerID', $scope.me.userId);
-      $scope.players.set(color+'PlayerName', $scope.me.displayName);
-      $scope.players.set(color+'PlayerPhoto', $scope.me.photoUrl);
+      $scope.players.set(color + 'PlayerID', $scope.me.userId);
+      $scope.players.set(color + 'PlayerName', $scope.me.displayName);
+      $scope.players.set(color + 'PlayerPhoto', $scope.me.photoUrl);
       $scope.players.set(color + 'PlayerEmail', $scope.me.email);
-      if ( color == 'black') $('chessboard').addClass('black');
-      if ( color == 'white') $('chessboard').removeClass('black');
+      if (color == 'black') $('chessboard').addClass('black');
+      if (color == 'white') $('chessboard').removeClass('black');
 
       var whiteName = $scope.players.get('whitePlayerName');
       var blackName = $scope.players.get('blackPlayerName');
-      if ( whiteName && blackName ) {
-        $scope.title = whiteName.split(" ")[0] + ' vs. ' + blackName.split(" ")[0];
+      if (whiteName && blackName) {
+        $scope.title = whiteName.split(' ')[0] + ' vs. ' + blackName.split(' ')[0];
         $scope.updateTitle();
       }
 
-    }
+    };
 
     $scope.share = function() { drive.share(rtclient, appId); };
     $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };
