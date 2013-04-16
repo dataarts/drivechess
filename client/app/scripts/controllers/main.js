@@ -3,7 +3,7 @@
 angular.module('chessApp')
   .controller('MainCtrl', function($scope, rtclient, $log, $location, debounce) {
 
-    var startState = {
+    var boardState = {
         'PBa': 'a7',
         'PBb': 'b7',
         'PBc': 'c7',
@@ -38,21 +38,42 @@ angular.module('chessApp')
         'KWe': 'e1'
     };
 
+    var playersState = {
+      'whitePlayerID': '',
+      'whitePlayerName': '',
+      'whitePlayerPhoto': '',
+      'blackPlayerID': '',
+      'blackPlayerName': '',
+      'blackPlayerPhoto': '',
+      'turn': 'white'
+    }
+
     var appId = 34208184131;
 
     function initializeModel(model) {
-      var board = model.createMap(startState);
-      model.getRoot().set('board', board);
-      $scope.board = board;
+      $scope.board = model.createMap(boardState);
+      model.getRoot().set('board', $scope.board);
+
+      $scope.players = model.createMap(playersState);
+      model.getRoot().set('players', $scope.players);
     }
 
     function onFileLoaded(doc) {
+    
       $scope.showBoard = true;
       $scope.board = doc.getModel().getRoot().get('board');
+      $scope.players = doc.getModel().getRoot().get('players');
+
+      var collaborators = doc.getCollaborators();
+      for ( var i in collaborators ) {
+        if ( collaborators[i].isMe ) $scope.me = collaborators[i];
+      }
+
       $scope.$apply();
       $scope.board.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
         $scope.$apply();
       });
+
       // Set the title and make it renamable
       gapi.client.load('drive', 'v2', function() {
         var request = gapi.client.drive.files.get({
@@ -73,6 +94,7 @@ angular.module('chessApp')
         });
       });
     }
+
 
     var realtimeOptions = {
       clientId: '34208184131.apps.googleusercontent.com',
@@ -96,6 +118,12 @@ angular.module('chessApp')
     $scope.flip = function() {
       $('chessboard').toggleClass('black');
     };
+    
+    $scope.chooseSide = function(color) {
+      $scope.players.set(color+'PlayerID', $scope.me.userId);
+      $scope.players.set(color+'PlayerName', $scope.me.displayName);
+      $scope.players.set(color+'PlayerPhoto', $scope.me.photoUrl);
+    }
 
     $scope.share = function() { drive.share(rtclient, appId); };
     $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };

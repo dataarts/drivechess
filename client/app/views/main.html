@@ -9,6 +9,14 @@
       </a>
 
       <a class="brand" href="#">Drive Chess</a>
+      <div id="players" class="pull-right">
+        <a ng-hide="players.get('whitePlayerID')" ng-click="chooseSide('white')" class="btn">Play as white</a>
+        <img ng-show="players.get('whitePlayerID')" src="{{players.get('whitePlayerPhoto')}}" alt="{{players.get('blackPlayerName')}}" class="img-rounded">
+        <span ng-hide="!players.get('whitePlayerID') || !players.get('blackPlayerID')" class="vs">VS.</span>
+        <a ng-show="!players.get('blackPlayerID')" ng-click="chooseSide('black')" class="btn btn-inverse">Play as black</a>
+        <img ng-show="players.get('blackPlayerID')" src="{{players.get('blackPlayerPhoto')}}" alt="{{players.get('blackPlayerName')}}" class="img-rounded">
+        <a ng-show="!players.get('whitePlayerID') || !players.get('blackPlayerID')" ng-click="share()" class="btn btn-primary">Invite a friend</a>
+      </div>
 
       <div class="nav-collapse collapse">
         <ul class="nav">

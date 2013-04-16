@@ -23,3 +23,19 @@ body {
 	position: relative;
 	z-index: 10000;
 }
+
+#players {
+  
+  img {
+    width:28px;
+    height:28px;
+    margin-top:6px;
+  }
+
+  span.vs {
+    color: #ddd;
+    position: relative;
+    top: 4px;
+  }
+
+}
