@@ -40,7 +40,7 @@ angular.module('chessApp')
                   $log.info(color + ' wins');
                 }
               } else {
-                scope.$emit('move', piece.id + ' to ' + position);
+                scope.$emit('move', piece.id, position);
               }
             });
           },

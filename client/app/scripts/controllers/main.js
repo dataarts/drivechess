@@ -185,6 +185,7 @@ angular.module('chessApp')
       $scope.players.set(color + 'PlayerName', $scope.me.displayName);
       $scope.players.set(color + 'PlayerPhoto', $scope.me.photoUrl);
       $scope.players.set(color + 'PlayerEmail', $scope.me.email);
+      $scope.players.set($scope.me.userId, color);
       if (color == 'black') $('chessboard').addClass('black');
       if (color == 'white') $('chessboard').removeClass('black');
 
@@ -192,9 +193,13 @@ angular.module('chessApp')
       var blackName = $scope.players.get('blackPlayerName');
       if (whiteName && blackName) {
         $scope.title = whiteName.split(' ')[0] + ' vs. ' + blackName.split(' ')[0];
+        var whiteEmail = $scope.players.get('whitePlayerEmail');
+        var blackEmail = $scope.players.get('blackPlayerEmail');
+        comment('It is on! +' + whiteEmail + ' vs +' + blackEmail, function(resp) {
+          $scope.players.set('commentId', resp.commentId);
+        });
         $scope.updateTitle();
       }
-
     };
 
     $scope.share = function() { drive.share(rtclient, appId); };
@@ -204,14 +209,10 @@ angular.module('chessApp')
       realtimeLoader.createNewFileAndRedirect();
     };
 
-    $scope.$on('move', function(move) {
+    $scope.$on('move', function(piece, position) {
       var commentId = $scope.players.get('commentId');
       if (commentId) {
-        reply(commentId, move);
-      } else {
-        comment(move, function(resp) {
-          $scope.players.set('commentId', resp.commentId);
-        });
+        reply(commentId, piece + ' to ' + position);
       }
     });
 
