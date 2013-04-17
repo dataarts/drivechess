@@ -60,7 +60,11 @@ angular.module('chessApp')
                 }
               });
             }
-            scope.$emit('move', dragId, ui.draggable.data('from'), position);
+            var from = ui.draggable.data('from');
+            var to = position;
+            if (from !== to) {
+              scope.$emit('move', dragId, from, to);
+            }
           },
           over: function(event, ui) {
             $(this).addClass('highlight');
