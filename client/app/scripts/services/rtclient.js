@@ -28,9 +28,6 @@ angular.module('chessApp')
    * @const
    */
   rtclient.FILE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
-
-  rtclient.DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive';
-  rtclient.READONLY_SCOPE = 'https://www.googleapis.com/auth/drive.readonly';
   rtclient.EMAIL = 'https://www.googleapis.com/auth/userinfo.email';
 
   /**
@@ -45,6 +42,7 @@ angular.module('chessApp')
    * @const
    */
   rtclient.REALTIME_MIMETYPE = 'application/vnd.google-apps.drive-sdk';
+  rtclient.FOLDER_MIMETYPE = 'application/vnd.google-apps.folder';
 
 
   /**
@@ -144,8 +142,6 @@ angular.module('chessApp')
         scope: [
           rtclient.INSTALL_SCOPE,
           rtclient.FILE_SCOPE,
-          // rtclient.READONLY_SCOPE,
-          rtclient.DRIVE_SCOPE,
           rtclient.EMAIL,
           rtclient.OPENID_SCOPE
         ],
@@ -160,8 +156,6 @@ angular.module('chessApp')
       scope: [
         rtclient.INSTALL_SCOPE,
         rtclient.FILE_SCOPE,
-        // rtclient.READONLY_SCOPE,
-        rtclient.DRIVE_SCOPE,
         rtclient.EMAIL,
         rtclient.OPENID_SCOPE
       ],
@@ -197,15 +191,34 @@ angular.module('chessApp')
    */
   rtclient.createRealtimeFile = function(title, callback) {
     gapi.client.load('drive', 'v2', function() {
-      gapi.client.drive.files.insert({
-        'resource': {
-          mimeType: rtclient.REALTIME_MIMETYPE,
-          title: title
+      var createFile = function( parentId ) {
+        gapi.client.drive.files.insert({
+          'resource': {
+            mimeType: rtclient.REALTIME_MIMETYPE,
+            parents: [{id:parentId}],
+            title: title
+          }
+        }).execute(callback);
+      };
+      gapi.client.drive.files.list({
+        q: 'title = "drivechess" and trashed = false'
+      }).execute( function(resp) {
+        if (!resp.items) {
+          gapi.client.drive.files.insert({
+            'resource': {
+              mimeType: rtclient.FOLDER_MIMETYPE,
+              title: 'drivechess'
+            }
+          }).execute(function(resp) {
+            
+            createFile(resp.id);
+          });
+        } else {
+          createFile(resp.items[0].id);
         }
-      }).execute(callback);
+      });
     });
   };
-
 
   /**
    * Fetches the metadata for a Realtime file.
