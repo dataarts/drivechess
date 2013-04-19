@@ -195,7 +195,7 @@ angular.module('chessApp')
 
       var whiteName = $scope.players.get('whitePlayerName');
       var blackName = $scope.players.get('blackPlayerName');
-      if (whiteName && blackName && $scope.title == 'Untitle Game') {
+      if (whiteName && blackName && $scope.title == 'Untitled Game') {
         $scope.title = whiteName.split(' ')[0] + ' vs. ' + blackName.split(' ')[0];
         $scope.updateTitle();
       }
