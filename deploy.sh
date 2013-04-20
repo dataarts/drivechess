@@ -2,7 +2,7 @@ cd client
 grunt build --force
 git checkout gh-pages
 cd ..
-mv client/dist/* .
+mv -f client/dist/* .
 git add .
 git commit -am 'update dist'
 git push
