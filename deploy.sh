@@ -8,3 +8,4 @@ git add .
 git commit -am 'update dist'
 git push
 git checkout master
+rm -rf components
