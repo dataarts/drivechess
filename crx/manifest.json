@@ -2,7 +2,7 @@
   "name" : "Drive Chess",
   "version" : "0.0.1",
   "manifest_version" : 2,
-  "description" : "Play chess with your friends on Google Drive.",
+  "description" : "Play chess online with your friends using Google Drive's Realtime API.",
   "container" : "GOOGLE_DRIVE",
   "api_console_project_id" : "34208184131",
   "icons": {
@@ -10,7 +10,7 @@
   },
   "app" : {
     "launch" : {
-    "web_url" : "http://dataarts.github.io/drivechess"
+    "web_url" : "http://dataarts.github.io/drivechess/"
     }
   }
 }
