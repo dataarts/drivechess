@@ -74,13 +74,14 @@ angular.module('chessApp')
         });
 
         function resize() {
-          var h = $(window).height();
+          var hNav = 40;//$('.navbar-inner').height();
+          var h = $(window).height() - hNav;
           var w = $(window).width();
 
-          w = Math.min(w, h / 14 * 8);
+          w = Math.min(w, h / 12 * 8);
           h = Math.min(h, w);
 
-          var t = $(window).height() / 2 - h / 2;
+          var t = $(window).height() / 2 - h / 2 + hNav/2;
           var l = $(window).width() / 2 - w / 2;
 
           scope.style = {

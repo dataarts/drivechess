@@ -26,6 +26,12 @@ body {
 
   .gameTitle {
     margin-left: 10px;
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
+    @media (max-width: 450px) {
+      font-size: 14px;
+    }
   }
   .gameTitleEdit {
     margin-bottom: 0;

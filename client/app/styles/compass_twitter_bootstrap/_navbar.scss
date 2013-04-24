@@ -20,8 +20,8 @@
 // Gradient is applied to its own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
   min-height: $navbarHeight;
-  padding-left:  20px;
-  padding-right: 20px;
+  padding-left:  10px;
+  padding-right: 10px;
   @include ctb-gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
   border: 1px solid $navbarBorder;
   @include ctb-border-radius($baseBorderRadius);

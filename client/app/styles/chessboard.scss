@@ -19,6 +19,13 @@ chessboard {
     margin: -16px 0 0 -60px;
   }
 
+  #blocker {
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    top: -25%;
+  }
+
   .piece, .cell {
     position: absolute;
     @include box-sizing(border-box);
@@ -216,6 +223,10 @@ chessboard {
   .playBlack {
     left: 50%;
     top: -12.5%;
+  }
+  .inviteFriend {
+    left: 50%;
+    top: 50%;
   }
 
 }

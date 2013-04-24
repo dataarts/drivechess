@@ -38,18 +38,6 @@ angular.module('chessApp')
         'KWe': 'e1'
     };
 
-    var playersState = {
-      'whitePlayerID': '',
-      'whitePlayerName': '',
-      'whitePlayerEmail': '',
-      'whitePlayerPhoto': '',
-      'blackPlayerID': '',
-      'blackPlayerName': '',
-      'blackPlayerEmail': '',
-      'blackPlayerPhoto': '',
-      'turn': 'white'
-    };
-
     var appId = 34208184131;
 
     $scope.safeApply = function(fn) {
@@ -67,7 +55,7 @@ angular.module('chessApp')
       $scope.board = model.createMap(boardState);
       model.getRoot().set('board', $scope.board);
 
-      $scope.players = model.createMap(playersState);
+      $scope.players = model.createMap();
       model.getRoot().set('players', $scope.players);
 
       $scope.history = model.createList();
