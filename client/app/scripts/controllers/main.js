@@ -108,6 +108,7 @@ angular.module('chessApp')
           }, 500);
           $scope.$apply();
         });
+        localStorage.setItem('lastGame', rtclient.params['fileId']);
       });
 
       // store the users email address
@@ -149,25 +150,6 @@ angular.module('chessApp')
       });
     }
 
-    var realtimeOptions = {
-      clientId: '34208184131.apps.googleusercontent.com',
-      authButtonElementId: 'authorizeButton',
-      authNeededCallback: function() {
-        $scope.needsAuth = true;
-        $scope.$apply();
-      },
-      initializeModel: initializeModel,
-      autoCreate: true,
-      defaultTitle: 'Untitled Game',
-      onFileLoaded: onFileLoaded
-    };
-
-    var realtimeLoader = new rtclient.RealtimeLoader(realtimeOptions);
-    realtimeLoader.start(function() {
-      $scope.authorized = true;
-      $scope.$apply();
-    });
-
     $scope.flip = function() {
       $('chessboard').toggleClass('black');
     };
@@ -197,8 +179,12 @@ angular.module('chessApp')
       }
     };
 
-    $scope.share = function() { drive.share(rtclient, appId); };
+    $scope.share = function() {
+      drive.share(rtclient, appId);
+      $('.inviteFriend').hide();
+    };
     $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };
+
     $scope.create = function() {
       $scope.showBoard = false;
       realtimeLoader.createNewFileAndRedirect();
@@ -213,5 +199,30 @@ angular.module('chessApp')
       $scope.$apply();
     });
 
+    var realtimeOptions = {
+      clientId: '34208184131.apps.googleusercontent.com',
+      authButtonElementId: 'authorizeButton',
+      authNeededCallback: function() {
+        $scope.needsAuth = true;
+        $scope.$apply();
+      },
+      initializeModel: initializeModel,
+      autoCreate: false,
+      defaultTitle: 'Untitled Game',
+      onFileLoaded: onFileLoaded
+    };
+
+    var realtimeLoader = new rtclient.RealtimeLoader(realtimeOptions);
+    realtimeLoader.start(function() {
+      $scope.authorized = true;
+      $scope.$apply();
+
+      if (!rtclient.params['fileId']){
+        var lastGame = localStorage.getItem('lastGame');
+        if (lastGame) rtclient.redirectTo(lastGame);
+        else $scope.create();
+      }
+
+    });
 
   });

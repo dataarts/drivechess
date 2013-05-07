@@ -20,6 +20,14 @@ body {
   z-index: 1000;
 }
 
+.modal img {
+  width: 520px;
+  height: auto;
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
 #nav {
 	position: relative;
 	z-index: 10000;
