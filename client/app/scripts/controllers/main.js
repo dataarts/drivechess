@@ -79,6 +79,17 @@ angular.module('chessApp')
         }
       }
 
+      var whiteID = $scope.players.get('whitePlayerID');
+      var blackID = $scope.players.get('blackPlayerID');
+
+      if ( whiteID && whiteID != $scope.me.userId){
+        if (!blackID) $scope.chooseSide('black');
+      };
+
+      if ( blackID && blackID != $scope.me.userId){
+        if (!whiteID) $scope.chooseSide('white');
+      };
+
       $scope.$apply();
       $scope.board.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, function() {
         $scope.$apply();
