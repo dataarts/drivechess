@@ -90,5 +90,5 @@
   <div ng-show="!players.get(me.userId)" id="blocker"></div>
   <a ng-hide="players.get('whitePlayerID')" ng-click="chooseSide('white')" class="playWhite btn btn-primary">Choose white</a>
   <a ng-show="!players.get('blackPlayerID')" ng-click="chooseSide('black')" class="playBlack btn btn-primary">Choose black</a>
-  <a ng-show="!players.get('whitePlayerID') || !players.get('blackPlayerID')" ng-click="share()" class="inviteFriend btn btn-primary">Invite a friend</a>
+  <a ng-show="!players.get('whitePlayerID') || !players.get('blackPlayerID')" ng-hide="players.get('invited')" ng-click="share()" class="inviteFriend btn btn-primary">Invite a friend</a>
 </chessboard>

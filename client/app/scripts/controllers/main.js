@@ -184,7 +184,7 @@ angular.module('chessApp')
       var whiteEmail = $scope.players.get('whitePlayerEmail');
       var blackEmail = $scope.players.get('blackPlayerEmail');
       if (whiteEmail && blackEmail) {
-        comment('It is on! +' + whiteEmail + ' vs +' + blackEmail, function(resp) {
+        comment('It is on! +' + whiteName + ' vs +' + blackName + '\n' + document.location.href, function(resp) {
           $scope.players.set('commentId', resp.commentId);
         });
       }
@@ -192,7 +192,7 @@ angular.module('chessApp')
 
     $scope.share = function() {
       drive.share(rtclient, appId);
-      $('.inviteFriend').hide();
+      $scope.players.set('invited', true);
     };
     $scope.open = function() { drive.open(rtclient, appId, realtimeLoader); };
 
@@ -204,7 +204,9 @@ angular.module('chessApp')
     $scope.$on('move', function(evt, piece, from, to) {
       var commentId = $scope.players.get('commentId');
       if (commentId) {
-        reply(commentId, from + ' to ' + to);
+        var comment = from + ' to ' + to + '\n' + document.location.href;
+        console.log(comment);
+        reply(commentId, comment);
       }
       $scope.history.push(from + to);
       $scope.$apply();
